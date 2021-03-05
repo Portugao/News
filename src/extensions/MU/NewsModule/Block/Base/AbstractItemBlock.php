@@ -64,7 +64,7 @@ abstract class AbstractItemBlock extends AbstractBlockHandler
         }
     
         $controllerReference = new ControllerReference(
-            'MU\NewsModule\Controller\ExternalController::display',
+            'MU\NewsModule\Controller\ExternalController::displayAction',
             $this->getDisplayArguments($properties),
             [
                 'template' => $properties['customTemplate']

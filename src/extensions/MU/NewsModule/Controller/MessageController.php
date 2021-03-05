@@ -48,7 +48,7 @@ class MessageController extends AbstractMessageController
      * )
      * @Theme("admin")
      */
-    public function adminIndex(
+    public function adminIndexAction(
         Request $request,
         PermissionHelper $permissionHelper
     ): Response {
@@ -64,7 +64,7 @@ class MessageController extends AbstractMessageController
      *        methods = {"GET"}
      * )
      */
-    public function index(
+    public function indexAction(
         Request $request,
         PermissionHelper $permissionHelper
     ): Response {
@@ -83,7 +83,7 @@ class MessageController extends AbstractMessageController
      * )
      * @Theme("admin")
      */
-    public function adminView(
+    public function adminViewAction(
         Request $request,
         RouterInterface $router,
         PermissionHelper $permissionHelper,
@@ -115,7 +115,7 @@ class MessageController extends AbstractMessageController
      *        methods = {"GET"}
      * )
      */
-    public function view(
+    public function viewAction(
         Request $request,
         RouterInterface $router,
         PermissionHelper $permissionHelper,
@@ -148,7 +148,7 @@ class MessageController extends AbstractMessageController
      * )
      * @Theme("admin")
      */
-    public function adminEdit(
+    public function adminEditAction(
         Request $request,
         PermissionHelper $permissionHelper,
         ControllerHelper $controllerHelper,
@@ -172,7 +172,7 @@ class MessageController extends AbstractMessageController
      *        methods = {"GET", "POST"}
      * )
      */
-    public function edit(
+    public function editAction(
         Request $request,
         PermissionHelper $permissionHelper,
         ControllerHelper $controllerHelper,
@@ -197,7 +197,7 @@ class MessageController extends AbstractMessageController
      * )
      * @Theme("admin")
      */
-    public function adminDelete(
+    public function adminDeleteAction(
         Request $request,
         LoggerInterface $logger,
         PermissionHelper $permissionHelper,
@@ -231,7 +231,7 @@ class MessageController extends AbstractMessageController
      *        methods = {"GET", "POST"}
      * )
      */
-    public function delete(
+    public function deleteAction(
         Request $request,
         LoggerInterface $logger,
         PermissionHelper $permissionHelper,
@@ -266,7 +266,7 @@ class MessageController extends AbstractMessageController
      * )
      * @Theme("admin")
      */
-    public function adminDisplay(
+    public function adminDisplayAction(
         Request $request,
         PermissionHelper $permissionHelper,
         ControllerHelper $controllerHelper,
@@ -296,7 +296,7 @@ class MessageController extends AbstractMessageController
      *        methods = {"GET"}
      * )
      */
-    public function display(
+    public function displayAction(
         Request $request,
         PermissionHelper $permissionHelper,
         ControllerHelper $controllerHelper,
@@ -328,7 +328,7 @@ class MessageController extends AbstractMessageController
      * )
      * @Theme("admin")
      */
-    public function adminHandleSelectedEntries(
+    public function adminHandleSelectedEntriesAction(
         Request $request,
         LoggerInterface $logger,
         EntityFactory $entityFactory,
@@ -354,7 +354,7 @@ class MessageController extends AbstractMessageController
      *        methods = {"POST"}
      * )
      */
-    public function handleSelectedEntries(
+    public function handleSelectedEntriesAction(
         Request $request,
         LoggerInterface $logger,
         EntityFactory $entityFactory,
@@ -380,14 +380,14 @@ class MessageController extends AbstractMessageController
      *        methods = {"GET"}
      * )
      */
-    public function handleInlineRedirect(
+    public function handleInlineRedirectAction(
         EntityFactory $entityFactory,
         EntityDisplayHelper $entityDisplayHelper,
         string $idPrefix,
         string $commandName,
         int $id = 0
     ): Response {
-        return parent::handleInlineRedirect(
+        return parent::handleInlineRedirectAction(
             $entityFactory,
             $entityDisplayHelper,
             $idPrefix,

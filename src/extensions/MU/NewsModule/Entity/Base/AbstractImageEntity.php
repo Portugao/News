@@ -175,11 +175,13 @@ abstract class AbstractImageEntity extends EntityAccess
         return $this->_objectType;
     }
     
-    public function set_objectType(string $_objectType): void
+    public function set_objectType(string $_objectType): self
     {
         if ($this->_objectType !== $_objectType) {
             $this->_objectType = $_objectType ?? '';
         }
+    
+        return $this;
     }
     
     public function get_uploadBasePathRelative(): string
@@ -187,11 +189,13 @@ abstract class AbstractImageEntity extends EntityAccess
         return $this->_uploadBasePathRelative;
     }
     
-    public function set_uploadBasePathRelative(string $_uploadBasePathRelative): void
+    public function set_uploadBasePathRelative(string $_uploadBasePathRelative): self
     {
         if ($this->_uploadBasePathRelative !== $_uploadBasePathRelative) {
             $this->_uploadBasePathRelative = $_uploadBasePathRelative ?? '';
         }
+    
+        return $this;
     }
     
     public function get_uploadBasePathAbsolute(): string
@@ -199,11 +203,13 @@ abstract class AbstractImageEntity extends EntityAccess
         return $this->_uploadBasePathAbsolute;
     }
     
-    public function set_uploadBasePathAbsolute(string $_uploadBasePathAbsolute): void
+    public function set_uploadBasePathAbsolute(string $_uploadBasePathAbsolute): self
     {
         if ($this->_uploadBasePathAbsolute !== $_uploadBasePathAbsolute) {
             $this->_uploadBasePathAbsolute = $_uploadBasePathAbsolute ?? '';
         }
+    
+        return $this;
     }
     
     public function get_uploadBaseUrl(): string
@@ -211,11 +217,13 @@ abstract class AbstractImageEntity extends EntityAccess
         return $this->_uploadBaseUrl;
     }
     
-    public function set_uploadBaseUrl(string $_uploadBaseUrl): void
+    public function set_uploadBaseUrl(string $_uploadBaseUrl): self
     {
         if ($this->_uploadBaseUrl !== $_uploadBaseUrl) {
             $this->_uploadBaseUrl = $_uploadBaseUrl ?? '';
         }
+    
+        return $this;
     }
     
     public function getId(): ?int
@@ -223,11 +231,13 @@ abstract class AbstractImageEntity extends EntityAccess
         return $this->id;
     }
     
-    public function setId(?int $id = null): void
+    public function setId(?int $id = null): self
     {
         if ((int) $this->id !== $id) {
             $this->id = $id;
         }
+    
+        return $this;
     }
     
     public function getWorkflowState(): string
@@ -235,11 +245,13 @@ abstract class AbstractImageEntity extends EntityAccess
         return $this->workflowState;
     }
     
-    public function setWorkflowState(string $workflowState): void
+    public function setWorkflowState(string $workflowState): self
     {
         if ($this->workflowState !== $workflowState) {
             $this->workflowState = $workflowState ?? '';
         }
+    
+        return $this;
     }
     
     public function getTheFile(): ?File
@@ -297,11 +309,13 @@ abstract class AbstractImageEntity extends EntityAccess
         return $this->theFileFileName;
     }
     
-    public function setTheFileFileName(?string $theFileFileName = null): void
+    public function setTheFileFileName(?string $theFileFileName = null): self
     {
         if ($this->theFileFileName !== $theFileFileName) {
             $this->theFileFileName = $theFileFileName ?? '';
         }
+    
+        return $this;
     }
     
     public function getTheFileUrl(): ?string
@@ -309,11 +323,13 @@ abstract class AbstractImageEntity extends EntityAccess
         return $this->theFileUrl;
     }
     
-    public function setTheFileUrl(?string $theFileUrl = null): void
+    public function setTheFileUrl(?string $theFileUrl = null): self
     {
         if ($this->theFileUrl !== $theFileUrl) {
             $this->theFileUrl = $theFileUrl ?? '';
         }
+    
+        return $this;
     }
     
     public function getTheFileMeta(): array
@@ -321,11 +337,13 @@ abstract class AbstractImageEntity extends EntityAccess
         return $this->theFileMeta;
     }
     
-    public function setTheFileMeta(array $theFileMeta = []): void
+    public function setTheFileMeta(array $theFileMeta = []): self
     {
         if ($this->theFileMeta !== $theFileMeta) {
             $this->theFileMeta = $theFileMeta ?? '';
         }
+    
+        return $this;
     }
     
     public function getCaption(): string
@@ -333,11 +351,13 @@ abstract class AbstractImageEntity extends EntityAccess
         return $this->caption;
     }
     
-    public function setCaption(string $caption): void
+    public function setCaption(string $caption): self
     {
         if ($this->caption !== $caption) {
             $this->caption = $caption ?? '';
         }
+    
+        return $this;
     }
     
     public function getSortNumber(): int
@@ -345,11 +365,13 @@ abstract class AbstractImageEntity extends EntityAccess
         return $this->sortNumber;
     }
     
-    public function setSortNumber(int $sortNumber): void
+    public function setSortNumber(int $sortNumber): self
     {
         if ((int) $this->sortNumber !== $sortNumber) {
             $this->sortNumber = $sortNumber;
         }
+    
+        return $this;
     }
     
     public function getMessage(): ?\MU\NewsModule\Entity\MessageEntity
@@ -357,9 +379,11 @@ abstract class AbstractImageEntity extends EntityAccess
         return $this->message;
     }
     
-    public function setMessage(?\MU\NewsModule\Entity\MessageEntity $message = null): void
+    public function setMessage(?\MU\NewsModule\Entity\MessageEntity $message = null): self
     {
         $this->message = $message;
+    
+        return $this;
     }
     
     /**

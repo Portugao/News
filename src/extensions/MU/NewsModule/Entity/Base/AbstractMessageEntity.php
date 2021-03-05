@@ -381,8 +381,8 @@ abstract class AbstractMessageEntity extends EntityAccess implements Translatabl
     /**
      * @Gedmo\Translatable
      * @Gedmo\Slug(fields={"title"}, updatable=true, unique=true, separator="-", style="lower")
-     * @ORM\Column(type="string", length=255, unique=true)
-     * @Assert\Length(min="1", max="255")
+     * @ORM\Column(type="string", length=190, unique=true)
+     * @Assert\Length(min="1", max="190")
      *
      * @var string
      */
@@ -451,11 +451,13 @@ abstract class AbstractMessageEntity extends EntityAccess implements Translatabl
         return $this->_objectType;
     }
     
-    public function set_objectType(string $_objectType): void
+    public function set_objectType(string $_objectType): self
     {
         if ($this->_objectType !== $_objectType) {
             $this->_objectType = $_objectType ?? '';
         }
+    
+        return $this;
     }
     
     public function get_uploadBasePathRelative(): string
@@ -463,11 +465,13 @@ abstract class AbstractMessageEntity extends EntityAccess implements Translatabl
         return $this->_uploadBasePathRelative;
     }
     
-    public function set_uploadBasePathRelative(string $_uploadBasePathRelative): void
+    public function set_uploadBasePathRelative(string $_uploadBasePathRelative): self
     {
         if ($this->_uploadBasePathRelative !== $_uploadBasePathRelative) {
             $this->_uploadBasePathRelative = $_uploadBasePathRelative ?? '';
         }
+    
+        return $this;
     }
     
     public function get_uploadBasePathAbsolute(): string
@@ -475,11 +479,13 @@ abstract class AbstractMessageEntity extends EntityAccess implements Translatabl
         return $this->_uploadBasePathAbsolute;
     }
     
-    public function set_uploadBasePathAbsolute(string $_uploadBasePathAbsolute): void
+    public function set_uploadBasePathAbsolute(string $_uploadBasePathAbsolute): self
     {
         if ($this->_uploadBasePathAbsolute !== $_uploadBasePathAbsolute) {
             $this->_uploadBasePathAbsolute = $_uploadBasePathAbsolute ?? '';
         }
+    
+        return $this;
     }
     
     public function get_uploadBaseUrl(): string
@@ -487,11 +493,13 @@ abstract class AbstractMessageEntity extends EntityAccess implements Translatabl
         return $this->_uploadBaseUrl;
     }
     
-    public function set_uploadBaseUrl(string $_uploadBaseUrl): void
+    public function set_uploadBaseUrl(string $_uploadBaseUrl): self
     {
         if ($this->_uploadBaseUrl !== $_uploadBaseUrl) {
             $this->_uploadBaseUrl = $_uploadBaseUrl ?? '';
         }
+    
+        return $this;
     }
     
     public function getId(): ?int
@@ -499,11 +507,13 @@ abstract class AbstractMessageEntity extends EntityAccess implements Translatabl
         return $this->id;
     }
     
-    public function setId(?int $id = null): void
+    public function setId(?int $id = null): self
     {
         if ((int) $this->id !== $id) {
             $this->id = $id;
         }
+    
+        return $this;
     }
     
     public function getWorkflowState(): string
@@ -511,11 +521,13 @@ abstract class AbstractMessageEntity extends EntityAccess implements Translatabl
         return $this->workflowState;
     }
     
-    public function setWorkflowState(string $workflowState): void
+    public function setWorkflowState(string $workflowState): self
     {
         if ($this->workflowState !== $workflowState) {
             $this->workflowState = $workflowState ?? '';
         }
+    
+        return $this;
     }
     
     public function getTitle(): string
@@ -523,11 +535,13 @@ abstract class AbstractMessageEntity extends EntityAccess implements Translatabl
         return $this->title;
     }
     
-    public function setTitle(string $title): void
+    public function setTitle(string $title): self
     {
         if ($this->title !== $title) {
             $this->title = $title ?? '';
         }
+    
+        return $this;
     }
     
     public function getStartText(): string
@@ -535,11 +549,13 @@ abstract class AbstractMessageEntity extends EntityAccess implements Translatabl
         return $this->startText;
     }
     
-    public function setStartText(string $startText): void
+    public function setStartText(string $startText): self
     {
         if ($this->startText !== $startText) {
             $this->startText = $startText ?? '';
         }
+    
+        return $this;
     }
     
     public function getImageUpload1(): ?File
@@ -597,11 +613,13 @@ abstract class AbstractMessageEntity extends EntityAccess implements Translatabl
         return $this->imageUpload1FileName;
     }
     
-    public function setImageUpload1FileName(?string $imageUpload1FileName = null): void
+    public function setImageUpload1FileName(?string $imageUpload1FileName = null): self
     {
         if ($this->imageUpload1FileName !== $imageUpload1FileName) {
             $this->imageUpload1FileName = $imageUpload1FileName;
         }
+    
+        return $this;
     }
     
     public function getImageUpload1Url(): ?string
@@ -609,11 +627,13 @@ abstract class AbstractMessageEntity extends EntityAccess implements Translatabl
         return $this->imageUpload1Url;
     }
     
-    public function setImageUpload1Url(?string $imageUpload1Url = null): void
+    public function setImageUpload1Url(?string $imageUpload1Url = null): self
     {
         if ($this->imageUpload1Url !== $imageUpload1Url) {
             $this->imageUpload1Url = $imageUpload1Url;
         }
+    
+        return $this;
     }
     
     public function getImageUpload1Meta(): array
@@ -621,11 +641,13 @@ abstract class AbstractMessageEntity extends EntityAccess implements Translatabl
         return $this->imageUpload1Meta;
     }
     
-    public function setImageUpload1Meta(array $imageUpload1Meta = []): void
+    public function setImageUpload1Meta(array $imageUpload1Meta = []): self
     {
         if ($this->imageUpload1Meta !== $imageUpload1Meta) {
             $this->imageUpload1Meta = $imageUpload1Meta;
         }
+    
+        return $this;
     }
     
     public function getMainText(): string
@@ -633,11 +655,13 @@ abstract class AbstractMessageEntity extends EntityAccess implements Translatabl
         return $this->mainText;
     }
     
-    public function setMainText(string $mainText): void
+    public function setMainText(string $mainText): self
     {
         if ($this->mainText !== $mainText) {
             $this->mainText = $mainText ?? '';
         }
+    
+        return $this;
     }
     
     public function getAmountOfViews(): int
@@ -645,11 +669,13 @@ abstract class AbstractMessageEntity extends EntityAccess implements Translatabl
         return $this->amountOfViews;
     }
     
-    public function setAmountOfViews(int $amountOfViews): void
+    public function setAmountOfViews(int $amountOfViews): self
     {
         if ((int) $this->amountOfViews !== $amountOfViews) {
             $this->amountOfViews = $amountOfViews;
         }
+    
+        return $this;
     }
     
     public function getAuthor(): string
@@ -657,11 +683,13 @@ abstract class AbstractMessageEntity extends EntityAccess implements Translatabl
         return $this->author;
     }
     
-    public function setAuthor(string $author): void
+    public function setAuthor(string $author): self
     {
         if ($this->author !== $author) {
             $this->author = $author ?? '';
         }
+    
+        return $this;
     }
     
     public function getApprover()/*: ?UserEntity*/
@@ -669,11 +697,13 @@ abstract class AbstractMessageEntity extends EntityAccess implements Translatabl
         return $this->approver;
     }
     
-    public function setApprover(/*?UserEntity */$approver = null): void
+    public function setApprover(/*?UserEntity */$approver = null): self
     {
         if ($this->approver !== $approver) {
             $this->approver = $approver;
         }
+    
+        return $this;
     }
     
     public function getNotes(): string
@@ -681,11 +711,13 @@ abstract class AbstractMessageEntity extends EntityAccess implements Translatabl
         return $this->notes;
     }
     
-    public function setNotes(string $notes): void
+    public function setNotes(string $notes): self
     {
         if ($this->notes !== $notes) {
             $this->notes = $notes ?? '';
         }
+    
+        return $this;
     }
     
     public function getDisplayOnIndex(): bool
@@ -693,11 +725,13 @@ abstract class AbstractMessageEntity extends EntityAccess implements Translatabl
         return $this->displayOnIndex;
     }
     
-    public function setDisplayOnIndex(bool $displayOnIndex): void
+    public function setDisplayOnIndex(bool $displayOnIndex): self
     {
         if ((bool) $this->displayOnIndex !== $displayOnIndex) {
             $this->displayOnIndex = $displayOnIndex;
         }
+    
+        return $this;
     }
     
     public function getMessageLanguage(): ?string
@@ -705,11 +739,13 @@ abstract class AbstractMessageEntity extends EntityAccess implements Translatabl
         return $this->messageLanguage;
     }
     
-    public function setMessageLanguage(?string $messageLanguage = null): void
+    public function setMessageLanguage(?string $messageLanguage = null): self
     {
         if ($this->messageLanguage !== $messageLanguage) {
             $this->messageLanguage = $messageLanguage;
         }
+    
+        return $this;
     }
     
     public function getAllowComments(): bool
@@ -717,11 +753,13 @@ abstract class AbstractMessageEntity extends EntityAccess implements Translatabl
         return $this->allowComments;
     }
     
-    public function setAllowComments(bool $allowComments): void
+    public function setAllowComments(bool $allowComments): self
     {
         if ((bool) $this->allowComments !== $allowComments) {
             $this->allowComments = $allowComments;
         }
+    
+        return $this;
     }
     
     public function getImageUpload2(): ?File
@@ -779,11 +817,13 @@ abstract class AbstractMessageEntity extends EntityAccess implements Translatabl
         return $this->imageUpload2FileName;
     }
     
-    public function setImageUpload2FileName(?string $imageUpload2FileName = null): void
+    public function setImageUpload2FileName(?string $imageUpload2FileName = null): self
     {
         if ($this->imageUpload2FileName !== $imageUpload2FileName) {
             $this->imageUpload2FileName = $imageUpload2FileName;
         }
+    
+        return $this;
     }
     
     public function getImageUpload2Url(): ?string
@@ -791,11 +831,13 @@ abstract class AbstractMessageEntity extends EntityAccess implements Translatabl
         return $this->imageUpload2Url;
     }
     
-    public function setImageUpload2Url(?string $imageUpload2Url = null): void
+    public function setImageUpload2Url(?string $imageUpload2Url = null): self
     {
         if ($this->imageUpload2Url !== $imageUpload2Url) {
             $this->imageUpload2Url = $imageUpload2Url;
         }
+    
+        return $this;
     }
     
     public function getImageUpload2Meta(): array
@@ -803,11 +845,13 @@ abstract class AbstractMessageEntity extends EntityAccess implements Translatabl
         return $this->imageUpload2Meta;
     }
     
-    public function setImageUpload2Meta(array $imageUpload2Meta = []): void
+    public function setImageUpload2Meta(array $imageUpload2Meta = []): self
     {
         if ($this->imageUpload2Meta !== $imageUpload2Meta) {
             $this->imageUpload2Meta = $imageUpload2Meta;
         }
+    
+        return $this;
     }
     
     public function getImageUpload3(): ?File
@@ -865,11 +909,13 @@ abstract class AbstractMessageEntity extends EntityAccess implements Translatabl
         return $this->imageUpload3FileName;
     }
     
-    public function setImageUpload3FileName(?string $imageUpload3FileName = null): void
+    public function setImageUpload3FileName(?string $imageUpload3FileName = null): self
     {
         if ($this->imageUpload3FileName !== $imageUpload3FileName) {
             $this->imageUpload3FileName = $imageUpload3FileName;
         }
+    
+        return $this;
     }
     
     public function getImageUpload3Url(): ?string
@@ -877,11 +923,13 @@ abstract class AbstractMessageEntity extends EntityAccess implements Translatabl
         return $this->imageUpload3Url;
     }
     
-    public function setImageUpload3Url(?string $imageUpload3Url = null): void
+    public function setImageUpload3Url(?string $imageUpload3Url = null): self
     {
         if ($this->imageUpload3Url !== $imageUpload3Url) {
             $this->imageUpload3Url = $imageUpload3Url;
         }
+    
+        return $this;
     }
     
     public function getImageUpload3Meta(): array
@@ -889,11 +937,13 @@ abstract class AbstractMessageEntity extends EntityAccess implements Translatabl
         return $this->imageUpload3Meta;
     }
     
-    public function setImageUpload3Meta(array $imageUpload3Meta = []): void
+    public function setImageUpload3Meta(array $imageUpload3Meta = []): self
     {
         if ($this->imageUpload3Meta !== $imageUpload3Meta) {
             $this->imageUpload3Meta = $imageUpload3Meta;
         }
+    
+        return $this;
     }
     
     public function getImageUpload4(): ?File
@@ -951,11 +1001,13 @@ abstract class AbstractMessageEntity extends EntityAccess implements Translatabl
         return $this->imageUpload4FileName;
     }
     
-    public function setImageUpload4FileName(?string $imageUpload4FileName = null): void
+    public function setImageUpload4FileName(?string $imageUpload4FileName = null): self
     {
         if ($this->imageUpload4FileName !== $imageUpload4FileName) {
             $this->imageUpload4FileName = $imageUpload4FileName;
         }
+    
+        return $this;
     }
     
     public function getImageUpload4Url(): ?string
@@ -963,11 +1015,13 @@ abstract class AbstractMessageEntity extends EntityAccess implements Translatabl
         return $this->imageUpload4Url;
     }
     
-    public function setImageUpload4Url(?string $imageUpload4Url = null): void
+    public function setImageUpload4Url(?string $imageUpload4Url = null): self
     {
         if ($this->imageUpload4Url !== $imageUpload4Url) {
             $this->imageUpload4Url = $imageUpload4Url;
         }
+    
+        return $this;
     }
     
     public function getImageUpload4Meta(): array
@@ -975,11 +1029,13 @@ abstract class AbstractMessageEntity extends EntityAccess implements Translatabl
         return $this->imageUpload4Meta;
     }
     
-    public function setImageUpload4Meta(array $imageUpload4Meta = []): void
+    public function setImageUpload4Meta(array $imageUpload4Meta = []): self
     {
         if ($this->imageUpload4Meta !== $imageUpload4Meta) {
             $this->imageUpload4Meta = $imageUpload4Meta;
         }
+    
+        return $this;
     }
     
     public function getStartDate(): ?\DateTimeInterface
@@ -987,7 +1043,7 @@ abstract class AbstractMessageEntity extends EntityAccess implements Translatabl
         return $this->startDate;
     }
     
-    public function setStartDate(?\DateTimeInterface $startDate = null): void
+    public function setStartDate(?\DateTimeInterface $startDate = null): self
     {
         if ($this->startDate !== $startDate) {
             if (
@@ -1001,6 +1057,8 @@ abstract class AbstractMessageEntity extends EntityAccess implements Translatabl
                 $this->startDate = $startDate;
             }
         }
+    
+        return $this;
     }
     
     public function getNoEndDate(): bool
@@ -1008,11 +1066,13 @@ abstract class AbstractMessageEntity extends EntityAccess implements Translatabl
         return $this->noEndDate;
     }
     
-    public function setNoEndDate(bool $noEndDate): void
+    public function setNoEndDate(bool $noEndDate): self
     {
         if ((bool) $this->noEndDate !== $noEndDate) {
             $this->noEndDate = $noEndDate;
         }
+    
+        return $this;
     }
     
     public function getEndDate(): ?\DateTimeInterface
@@ -1020,7 +1080,7 @@ abstract class AbstractMessageEntity extends EntityAccess implements Translatabl
         return $this->endDate;
     }
     
-    public function setEndDate(?\DateTimeInterface $endDate = null): void
+    public function setEndDate(?\DateTimeInterface $endDate = null): self
     {
         if ($this->endDate !== $endDate) {
             if (
@@ -1034,6 +1094,8 @@ abstract class AbstractMessageEntity extends EntityAccess implements Translatabl
                 $this->endDate = $endDate;
             }
         }
+    
+        return $this;
     }
     
     public function getWeight(): int
@@ -1041,11 +1103,13 @@ abstract class AbstractMessageEntity extends EntityAccess implements Translatabl
         return $this->weight;
     }
     
-    public function setWeight(int $weight): void
+    public function setWeight(int $weight): self
     {
         if ((int) $this->weight !== $weight) {
             $this->weight = $weight;
         }
+    
+        return $this;
     }
     
     public function getSlug(): ?string
@@ -1053,11 +1117,13 @@ abstract class AbstractMessageEntity extends EntityAccess implements Translatabl
         return $this->slug;
     }
     
-    public function setSlug(?string $slug = null): void
+    public function setSlug(?string $slug = null): self
     {
         if ($this->slug !== $slug) {
             $this->slug = $slug;
         }
+    
+        return $this;
     }
     
     public function getLocale()
@@ -1065,11 +1131,13 @@ abstract class AbstractMessageEntity extends EntityAccess implements Translatabl
         return $this->locale;
     }
     
-    public function setLocale($locale = null): void
+    public function setLocale($locale = null): self
     {
         if ($this->locale !== $locale) {
             $this->locale = $locale;
         }
+    
+        return $this;
     }
     
     public function getAttributes(): ?Collection
@@ -1134,7 +1202,7 @@ abstract class AbstractMessageEntity extends EntityAccess implements Translatabl
         return $this->images;
     }
     
-    public function setImages($images = null): void
+    public function setImages($images = null): self
     {
         foreach ($this->images as $imageSingle) {
             $this->removeImages($imageSingle);
@@ -1142,24 +1210,36 @@ abstract class AbstractMessageEntity extends EntityAccess implements Translatabl
         foreach ($images as $imageSingle) {
             $this->addImages($imageSingle);
         }
+    
+        return $this;
     }
     
     /**
      * Adds an instance of \MU\NewsModule\Entity\ImageEntity to the list of images.
      */
-    public function addImages(\MU\NewsModule\Entity\ImageEntity $image): void
+    public function addImages(\MU\NewsModule\Entity\ImageEntity $image): self
     {
-        $this->images->add($image);
-        $image->setMessage($this);
+        if (!$this->images->contains($image)) {
+            $this->images->add($image);
+            $image->setMessage($this);
+        }
+    
+        return $this;
     }
     
     /**
      * Removes an instance of \MU\NewsModule\Entity\ImageEntity from the list of images.
      */
-    public function removeImages(\MU\NewsModule\Entity\ImageEntity $image): void
+    public function removeImages(\MU\NewsModule\Entity\ImageEntity $image): self
     {
-        $this->images->removeElement($image);
-        $image->setMessage(null);
+        if ($this->images->contains($image)) {
+            $this->images->removeElement($image);
+            if ($image->getMessage() === $this) {
+                $image->setMessage(null);
+            }
+        }
+    
+        return $this;
     }
     
     /**

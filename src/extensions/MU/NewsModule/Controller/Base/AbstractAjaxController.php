@@ -38,7 +38,7 @@ abstract class AbstractAjaxController extends AbstractController
     /**
      * Retrieve item list for finder selections, for example used in Scribite editor plug-ins.
      */
-    public function getItemListFinder(
+    public function getItemListFinderAction(
         Request $request,
         ControllerHelper $controllerHelper,
         PermissionHelper $permissionHelper,
@@ -60,7 +60,6 @@ abstract class AbstractAjaxController extends AbstractController
         }
         
         $repository = $entityFactory->getRepository($objectType);
-        $descriptionFieldName = $entityDisplayHelper->getDescriptionFieldName($objectType);
         
         $sort = $request->query->getAlnum('sort');
         if (empty($sort) || !in_array($sort, $repository->getAllowedSortingFields(), true)) {
@@ -94,8 +93,7 @@ abstract class AbstractAjaxController extends AbstractController
                 $repository,
                 $entityDisplayHelper,
                 $item,
-                $itemId,
-                $descriptionFieldName
+                $itemId
             );
         }
         
@@ -111,8 +109,7 @@ abstract class AbstractAjaxController extends AbstractController
         EntityRepository $repository,
         EntityDisplayHelper $entityDisplayHelper,
         $item,
-        string $itemId,
-        string $descriptionField
+        string $itemId
     ): array {
         $objectType = $item->get_objectType();
         $previewParameters = [
@@ -133,7 +130,7 @@ abstract class AbstractAjaxController extends AbstractController
         $previewInfo = base64_encode($previewInfo);
     
         $title = $entityDisplayHelper->getFormattedTitle($item);
-        $description = '' !== $descriptionField ? $item[$descriptionField] : '';
+        $description = $entityDisplayHelper->getDescription($item);
     
         return [
             'id' => $itemId,
@@ -148,7 +145,7 @@ abstract class AbstractAjaxController extends AbstractController
      *
      * @throws AccessDeniedException Thrown if the user doesn't have required permissions
      */
-    public function checkForDuplicate(
+    public function checkForDuplicateAction(
         Request $request,
         ControllerHelper $controllerHelper,
         EntityFactory $entityFactory
@@ -209,7 +206,7 @@ abstract class AbstractAjaxController extends AbstractController
      *
      * @throws AccessDeniedException Thrown if the user doesn't have required permissions
      */
-    public function toggleFlag(
+    public function toggleFlagAction(
         Request $request,
         LoggerInterface $logger,
         EntityFactory $entityFactory,
@@ -270,7 +267,7 @@ abstract class AbstractAjaxController extends AbstractController
      *
      * @throws AccessDeniedException Thrown if the user doesn't have required permissions
      */
-    public function updateSortPositions(
+    public function updateSortPositionsAction(
         Request $request,
         EntityFactory $entityFactory
     ): JsonResponse {

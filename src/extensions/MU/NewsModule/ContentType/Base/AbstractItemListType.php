@@ -143,7 +143,7 @@ abstract class AbstractItemListType extends AbstractContentType
     
         // create query
         $orderBy = $this->modelHelper->resolveSortParameter($this->data['objectType'], $this->data['sorting']);
-        $qb = $repository->getListQueryBuilder($this->data['filter'], $orderBy);
+        $qb = $repository->getListQueryBuilder($this->data['filter'] ?? '', $orderBy);
     
         $this->getData();
         if (in_array($objectType, $this->categorisableObjectTypes, true)) {

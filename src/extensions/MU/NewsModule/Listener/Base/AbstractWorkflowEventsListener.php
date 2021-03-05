@@ -302,7 +302,12 @@ abstract class AbstractWorkflowEventsListener implements EventSubscriberInterfac
             $workflowShortName = 'enterprise';
         }
         if ('none' !== $workflowShortName) {
-            $this->sendNotifications($entity, $event->getTransition()->getName(), $workflowShortName);
+            $action = $event->getTransition()->getName();
+            $mayApprove = $this->permissionHelper->hasEntityPermission($entity, ACCESS_ADD);
+            $needsNotification = 'submit' !== $action || !$mayApprove;
+            if ($needsNotification) {
+                $this->sendNotifications($entity, $action, $workflowShortName);
+            }
         }
     }
     
@@ -356,7 +361,7 @@ abstract class AbstractWorkflowEventsListener implements EventSubscriberInterfac
     /**
      * Sends email notifications.
      */
-    protected function sendNotifications($entity, string $actionId, string $workflowShortName): void
+    protected function sendNotifications($entity, string $action, string $workflowShortName): void
     {
         $newState = $entity->getWorkflowState();
     
@@ -365,19 +370,19 @@ abstract class AbstractWorkflowEventsListener implements EventSubscriberInterfac
         $sendToModerator = false;
         $sendToSuperModerator = false;
         if (
-            'submit' === $actionId && 'waiting' === $newState
-            || 'demote' === $actionId && 'accepted' === $newState
+            'submit' === $action && 'waiting' === $newState
+            || 'demote' === $action && 'accepted' === $newState
         ) {
             // only to moderator
             $sendToCreator = false;
             $sendToModerator = true;
-        } elseif ('accept' === $actionId && 'accepted' === $newState) {
+        } elseif ('accept' === $action && 'accepted' === $newState) {
             // to creator and super moderator
             $sendToSuperModerator = true;
-        } elseif ('approve' === $actionId && 'approved' === $newState && 'enterprise' === $workflowShortName) {
+        } elseif ('approve' === $action && 'approved' === $newState && 'enterprise' === $workflowShortName) {
             // to creator and moderator
             $sendToModerator = true;
-        } elseif ('update' === $actionId && 'waiting' === $newState) {
+        } elseif ('update' === $action && 'waiting' === $newState) {
             // only to moderator
             $sendToCreator = false;
             $sendToModerator = true;
@@ -396,7 +401,7 @@ abstract class AbstractWorkflowEventsListener implements EventSubscriberInterfac
         foreach ($recipientTypes as $recipientType) {
             $notifyArgs = [
                 'recipientType' => $recipientType,
-                'action' => $actionId,
+                'action' => $action,
                 'entity' => $entity,
             ];
             $result = $this->notificationHelper->process($notifyArgs);

@@ -781,11 +781,13 @@ abstract class AbstractAppSettings
         return $this->enableAttribution;
     }
     
-    public function setEnableAttribution(bool $enableAttribution): void
+    public function setEnableAttribution(bool $enableAttribution): self
     {
         if ((bool) $this->enableAttribution !== $enableAttribution) {
             $this->enableAttribution = $enableAttribution;
         }
+    
+        return $this;
     }
     
     public function getEnableMultiLanguage(): bool
@@ -793,11 +795,13 @@ abstract class AbstractAppSettings
         return $this->enableMultiLanguage;
     }
     
-    public function setEnableMultiLanguage(bool $enableMultiLanguage): void
+    public function setEnableMultiLanguage(bool $enableMultiLanguage): self
     {
         if ((bool) $this->enableMultiLanguage !== $enableMultiLanguage) {
             $this->enableMultiLanguage = $enableMultiLanguage;
         }
+    
+        return $this;
     }
     
     public function getShowAuthor(): bool
@@ -805,11 +809,13 @@ abstract class AbstractAppSettings
         return $this->showAuthor;
     }
     
-    public function setShowAuthor(bool $showAuthor): void
+    public function setShowAuthor(bool $showAuthor): self
     {
         if ((bool) $this->showAuthor !== $showAuthor) {
             $this->showAuthor = $showAuthor;
         }
+    
+        return $this;
     }
     
     public function getShowDate(): bool
@@ -817,11 +823,13 @@ abstract class AbstractAppSettings
         return $this->showDate;
     }
     
-    public function setShowDate(bool $showDate): void
+    public function setShowDate(bool $showDate): self
     {
         if ((bool) $this->showDate !== $showDate) {
             $this->showDate = $showDate;
         }
+    
+        return $this;
     }
     
     public function getEnableCategorization(): bool
@@ -829,11 +837,13 @@ abstract class AbstractAppSettings
         return $this->enableCategorization;
     }
     
-    public function setEnableCategorization(bool $enableCategorization): void
+    public function setEnableCategorization(bool $enableCategorization): self
     {
         if ((bool) $this->enableCategorization !== $enableCategorization) {
             $this->enableCategorization = $enableCategorization;
         }
+    
+        return $this;
     }
     
     public function getDefaultMessageSorting(): string
@@ -841,11 +851,13 @@ abstract class AbstractAppSettings
         return $this->defaultMessageSorting;
     }
     
-    public function setDefaultMessageSorting(string $defaultMessageSorting): void
+    public function setDefaultMessageSorting(string $defaultMessageSorting): self
     {
         if ($this->defaultMessageSorting !== $defaultMessageSorting) {
             $this->defaultMessageSorting = $defaultMessageSorting ?? '';
         }
+    
+        return $this;
     }
     
     public function getDefaultMessageSortingBackend(): string
@@ -853,11 +865,13 @@ abstract class AbstractAppSettings
         return $this->defaultMessageSortingBackend;
     }
     
-    public function setDefaultMessageSortingBackend(string $defaultMessageSortingBackend): void
+    public function setDefaultMessageSortingBackend(string $defaultMessageSortingBackend): self
     {
         if ($this->defaultMessageSortingBackend !== $defaultMessageSortingBackend) {
             $this->defaultMessageSortingBackend = $defaultMessageSortingBackend ?? '';
         }
+    
+        return $this;
     }
     
     public function getSortingDirection(): string
@@ -865,11 +879,13 @@ abstract class AbstractAppSettings
         return $this->sortingDirection;
     }
     
-    public function setSortingDirection(string $sortingDirection): void
+    public function setSortingDirection(string $sortingDirection): self
     {
         if ($this->sortingDirection !== $sortingDirection) {
             $this->sortingDirection = $sortingDirection ?? '';
         }
+    
+        return $this;
     }
     
     public function getEnableMoreMessagesInCategory(): bool
@@ -877,11 +893,13 @@ abstract class AbstractAppSettings
         return $this->enableMoreMessagesInCategory;
     }
     
-    public function setEnableMoreMessagesInCategory(bool $enableMoreMessagesInCategory): void
+    public function setEnableMoreMessagesInCategory(bool $enableMoreMessagesInCategory): self
     {
         if ((bool) $this->enableMoreMessagesInCategory !== $enableMoreMessagesInCategory) {
             $this->enableMoreMessagesInCategory = $enableMoreMessagesInCategory;
         }
+    
+        return $this;
     }
     
     public function getAmountOfMoreArticlesInCategory(): int
@@ -889,11 +907,13 @@ abstract class AbstractAppSettings
         return $this->amountOfMoreArticlesInCategory;
     }
     
-    public function setAmountOfMoreArticlesInCategory(int $amountOfMoreArticlesInCategory): void
+    public function setAmountOfMoreArticlesInCategory(int $amountOfMoreArticlesInCategory): self
     {
         if ((int) $this->amountOfMoreArticlesInCategory !== $amountOfMoreArticlesInCategory) {
             $this->amountOfMoreArticlesInCategory = $amountOfMoreArticlesInCategory;
         }
+    
+        return $this;
     }
     
     public function getDisplayPdfLink(): bool
@@ -901,11 +921,13 @@ abstract class AbstractAppSettings
         return $this->displayPdfLink;
     }
     
-    public function setDisplayPdfLink(bool $displayPdfLink): void
+    public function setDisplayPdfLink(bool $displayPdfLink): self
     {
         if ((bool) $this->displayPdfLink !== $displayPdfLink) {
             $this->displayPdfLink = $displayPdfLink;
         }
+    
+        return $this;
     }
     
     public function getEnablePictureUpload(): bool
@@ -913,11 +935,13 @@ abstract class AbstractAppSettings
         return $this->enablePictureUpload;
     }
     
-    public function setEnablePictureUpload(bool $enablePictureUpload): void
+    public function setEnablePictureUpload(bool $enablePictureUpload): self
     {
         if ((bool) $this->enablePictureUpload !== $enablePictureUpload) {
             $this->enablePictureUpload = $enablePictureUpload;
         }
+    
+        return $this;
     }
     
     public function getImageFloatOnViewPage(): string
@@ -925,11 +949,13 @@ abstract class AbstractAppSettings
         return $this->imageFloatOnViewPage;
     }
     
-    public function setImageFloatOnViewPage(string $imageFloatOnViewPage): void
+    public function setImageFloatOnViewPage(string $imageFloatOnViewPage): self
     {
         if ($this->imageFloatOnViewPage !== $imageFloatOnViewPage) {
             $this->imageFloatOnViewPage = $imageFloatOnViewPage ?? '';
         }
+    
+        return $this;
     }
     
     public function getImageFloatOnDisplayPage(): string
@@ -937,11 +963,13 @@ abstract class AbstractAppSettings
         return $this->imageFloatOnDisplayPage;
     }
     
-    public function setImageFloatOnDisplayPage(string $imageFloatOnDisplayPage): void
+    public function setImageFloatOnDisplayPage(string $imageFloatOnDisplayPage): self
     {
         if ($this->imageFloatOnDisplayPage !== $imageFloatOnDisplayPage) {
             $this->imageFloatOnDisplayPage = $imageFloatOnDisplayPage ?? '';
         }
+    
+        return $this;
     }
     
     public function getMaxSize(): string
@@ -949,11 +977,13 @@ abstract class AbstractAppSettings
         return $this->maxSize;
     }
     
-    public function setMaxSize(string $maxSize): void
+    public function setMaxSize(string $maxSize): self
     {
         if ($this->maxSize !== $maxSize) {
             $this->maxSize = $maxSize ?? '';
         }
+    
+        return $this;
     }
     
     public function getMessageEntriesPerPage(): int
@@ -961,11 +991,13 @@ abstract class AbstractAppSettings
         return $this->messageEntriesPerPage;
     }
     
-    public function setMessageEntriesPerPage(int $messageEntriesPerPage): void
+    public function setMessageEntriesPerPage(int $messageEntriesPerPage): self
     {
         if ((int) $this->messageEntriesPerPage !== $messageEntriesPerPage) {
             $this->messageEntriesPerPage = $messageEntriesPerPage;
         }
+    
+        return $this;
     }
     
     public function getLinkOwnMessagesOnAccountPage(): bool
@@ -973,11 +1005,13 @@ abstract class AbstractAppSettings
         return $this->linkOwnMessagesOnAccountPage;
     }
     
-    public function setLinkOwnMessagesOnAccountPage(bool $linkOwnMessagesOnAccountPage): void
+    public function setLinkOwnMessagesOnAccountPage(bool $linkOwnMessagesOnAccountPage): self
     {
         if ((bool) $this->linkOwnMessagesOnAccountPage !== $linkOwnMessagesOnAccountPage) {
             $this->linkOwnMessagesOnAccountPage = $linkOwnMessagesOnAccountPage;
         }
+    
+        return $this;
     }
     
     public function getShowOnlyOwnEntries(): bool
@@ -985,11 +1019,13 @@ abstract class AbstractAppSettings
         return $this->showOnlyOwnEntries;
     }
     
-    public function setShowOnlyOwnEntries(bool $showOnlyOwnEntries): void
+    public function setShowOnlyOwnEntries(bool $showOnlyOwnEntries): self
     {
         if ((bool) $this->showOnlyOwnEntries !== $showOnlyOwnEntries) {
             $this->showOnlyOwnEntries = $showOnlyOwnEntries;
         }
+    
+        return $this;
     }
     
     public function getFilterDataByLocale(): bool
@@ -997,11 +1033,13 @@ abstract class AbstractAppSettings
         return $this->filterDataByLocale;
     }
     
-    public function setFilterDataByLocale(bool $filterDataByLocale): void
+    public function setFilterDataByLocale(bool $filterDataByLocale): self
     {
         if ((bool) $this->filterDataByLocale !== $filterDataByLocale) {
             $this->filterDataByLocale = $filterDataByLocale;
         }
+    
+        return $this;
     }
     
     public function getEnableShrinkingForMessageImageUpload1(): bool
@@ -1009,11 +1047,13 @@ abstract class AbstractAppSettings
         return $this->enableShrinkingForMessageImageUpload1;
     }
     
-    public function setEnableShrinkingForMessageImageUpload1(bool $enableShrinkingForMessageImageUpload1): void
+    public function setEnableShrinkingForMessageImageUpload1(bool $enableShrinkingForMessageImageUpload1): self
     {
         if ((bool) $this->enableShrinkingForMessageImageUpload1 !== $enableShrinkingForMessageImageUpload1) {
             $this->enableShrinkingForMessageImageUpload1 = $enableShrinkingForMessageImageUpload1;
         }
+    
+        return $this;
     }
     
     public function getShrinkWidthMessageImageUpload1(): int
@@ -1021,11 +1061,13 @@ abstract class AbstractAppSettings
         return $this->shrinkWidthMessageImageUpload1;
     }
     
-    public function setShrinkWidthMessageImageUpload1(int $shrinkWidthMessageImageUpload1): void
+    public function setShrinkWidthMessageImageUpload1(int $shrinkWidthMessageImageUpload1): self
     {
         if ((int) $this->shrinkWidthMessageImageUpload1 !== $shrinkWidthMessageImageUpload1) {
             $this->shrinkWidthMessageImageUpload1 = $shrinkWidthMessageImageUpload1;
         }
+    
+        return $this;
     }
     
     public function getShrinkHeightMessageImageUpload1(): int
@@ -1033,11 +1075,13 @@ abstract class AbstractAppSettings
         return $this->shrinkHeightMessageImageUpload1;
     }
     
-    public function setShrinkHeightMessageImageUpload1(int $shrinkHeightMessageImageUpload1): void
+    public function setShrinkHeightMessageImageUpload1(int $shrinkHeightMessageImageUpload1): self
     {
         if ((int) $this->shrinkHeightMessageImageUpload1 !== $shrinkHeightMessageImageUpload1) {
             $this->shrinkHeightMessageImageUpload1 = $shrinkHeightMessageImageUpload1;
         }
+    
+        return $this;
     }
     
     public function getThumbnailModeMessageImageUpload1(): string
@@ -1045,11 +1089,13 @@ abstract class AbstractAppSettings
         return $this->thumbnailModeMessageImageUpload1;
     }
     
-    public function setThumbnailModeMessageImageUpload1(string $thumbnailModeMessageImageUpload1): void
+    public function setThumbnailModeMessageImageUpload1(string $thumbnailModeMessageImageUpload1): self
     {
         if ($this->thumbnailModeMessageImageUpload1 !== $thumbnailModeMessageImageUpload1) {
             $this->thumbnailModeMessageImageUpload1 = $thumbnailModeMessageImageUpload1 ?? '';
         }
+    
+        return $this;
     }
     
     public function getThumbnailWidthMessageImageUpload1View(): int
@@ -1057,11 +1103,13 @@ abstract class AbstractAppSettings
         return $this->thumbnailWidthMessageImageUpload1View;
     }
     
-    public function setThumbnailWidthMessageImageUpload1View(int $thumbnailWidthMessageImageUpload1View): void
+    public function setThumbnailWidthMessageImageUpload1View(int $thumbnailWidthMessageImageUpload1View): self
     {
         if ((int) $this->thumbnailWidthMessageImageUpload1View !== $thumbnailWidthMessageImageUpload1View) {
             $this->thumbnailWidthMessageImageUpload1View = $thumbnailWidthMessageImageUpload1View;
         }
+    
+        return $this;
     }
     
     public function getThumbnailHeightMessageImageUpload1View(): int
@@ -1069,11 +1117,13 @@ abstract class AbstractAppSettings
         return $this->thumbnailHeightMessageImageUpload1View;
     }
     
-    public function setThumbnailHeightMessageImageUpload1View(int $thumbnailHeightMessageImageUpload1View): void
+    public function setThumbnailHeightMessageImageUpload1View(int $thumbnailHeightMessageImageUpload1View): self
     {
         if ((int) $this->thumbnailHeightMessageImageUpload1View !== $thumbnailHeightMessageImageUpload1View) {
             $this->thumbnailHeightMessageImageUpload1View = $thumbnailHeightMessageImageUpload1View;
         }
+    
+        return $this;
     }
     
     public function getThumbnailWidthMessageImageUpload1Display(): int
@@ -1081,11 +1131,13 @@ abstract class AbstractAppSettings
         return $this->thumbnailWidthMessageImageUpload1Display;
     }
     
-    public function setThumbnailWidthMessageImageUpload1Display(int $thumbnailWidthMessageImageUpload1Display): void
+    public function setThumbnailWidthMessageImageUpload1Display(int $thumbnailWidthMessageImageUpload1Display): self
     {
         if ((int) $this->thumbnailWidthMessageImageUpload1Display !== $thumbnailWidthMessageImageUpload1Display) {
             $this->thumbnailWidthMessageImageUpload1Display = $thumbnailWidthMessageImageUpload1Display;
         }
+    
+        return $this;
     }
     
     public function getThumbnailHeightMessageImageUpload1Display(): int
@@ -1093,11 +1145,13 @@ abstract class AbstractAppSettings
         return $this->thumbnailHeightMessageImageUpload1Display;
     }
     
-    public function setThumbnailHeightMessageImageUpload1Display(int $thumbnailHeightMessageImageUpload1Display): void
+    public function setThumbnailHeightMessageImageUpload1Display(int $thumbnailHeightMessageImageUpload1Display): self
     {
         if ((int) $this->thumbnailHeightMessageImageUpload1Display !== $thumbnailHeightMessageImageUpload1Display) {
             $this->thumbnailHeightMessageImageUpload1Display = $thumbnailHeightMessageImageUpload1Display;
         }
+    
+        return $this;
     }
     
     public function getThumbnailWidthMessageImageUpload1Edit(): int
@@ -1105,11 +1159,13 @@ abstract class AbstractAppSettings
         return $this->thumbnailWidthMessageImageUpload1Edit;
     }
     
-    public function setThumbnailWidthMessageImageUpload1Edit(int $thumbnailWidthMessageImageUpload1Edit): void
+    public function setThumbnailWidthMessageImageUpload1Edit(int $thumbnailWidthMessageImageUpload1Edit): self
     {
         if ((int) $this->thumbnailWidthMessageImageUpload1Edit !== $thumbnailWidthMessageImageUpload1Edit) {
             $this->thumbnailWidthMessageImageUpload1Edit = $thumbnailWidthMessageImageUpload1Edit;
         }
+    
+        return $this;
     }
     
     public function getThumbnailHeightMessageImageUpload1Edit(): int
@@ -1117,11 +1173,13 @@ abstract class AbstractAppSettings
         return $this->thumbnailHeightMessageImageUpload1Edit;
     }
     
-    public function setThumbnailHeightMessageImageUpload1Edit(int $thumbnailHeightMessageImageUpload1Edit): void
+    public function setThumbnailHeightMessageImageUpload1Edit(int $thumbnailHeightMessageImageUpload1Edit): self
     {
         if ((int) $this->thumbnailHeightMessageImageUpload1Edit !== $thumbnailHeightMessageImageUpload1Edit) {
             $this->thumbnailHeightMessageImageUpload1Edit = $thumbnailHeightMessageImageUpload1Edit;
         }
+    
+        return $this;
     }
     
     public function getEnableShrinkingForMessageImageUpload2(): bool
@@ -1129,11 +1187,13 @@ abstract class AbstractAppSettings
         return $this->enableShrinkingForMessageImageUpload2;
     }
     
-    public function setEnableShrinkingForMessageImageUpload2(bool $enableShrinkingForMessageImageUpload2): void
+    public function setEnableShrinkingForMessageImageUpload2(bool $enableShrinkingForMessageImageUpload2): self
     {
         if ((bool) $this->enableShrinkingForMessageImageUpload2 !== $enableShrinkingForMessageImageUpload2) {
             $this->enableShrinkingForMessageImageUpload2 = $enableShrinkingForMessageImageUpload2;
         }
+    
+        return $this;
     }
     
     public function getShrinkWidthMessageImageUpload2(): int
@@ -1141,11 +1201,13 @@ abstract class AbstractAppSettings
         return $this->shrinkWidthMessageImageUpload2;
     }
     
-    public function setShrinkWidthMessageImageUpload2(int $shrinkWidthMessageImageUpload2): void
+    public function setShrinkWidthMessageImageUpload2(int $shrinkWidthMessageImageUpload2): self
     {
         if ((int) $this->shrinkWidthMessageImageUpload2 !== $shrinkWidthMessageImageUpload2) {
             $this->shrinkWidthMessageImageUpload2 = $shrinkWidthMessageImageUpload2;
         }
+    
+        return $this;
     }
     
     public function getShrinkHeightMessageImageUpload2(): int
@@ -1153,11 +1215,13 @@ abstract class AbstractAppSettings
         return $this->shrinkHeightMessageImageUpload2;
     }
     
-    public function setShrinkHeightMessageImageUpload2(int $shrinkHeightMessageImageUpload2): void
+    public function setShrinkHeightMessageImageUpload2(int $shrinkHeightMessageImageUpload2): self
     {
         if ((int) $this->shrinkHeightMessageImageUpload2 !== $shrinkHeightMessageImageUpload2) {
             $this->shrinkHeightMessageImageUpload2 = $shrinkHeightMessageImageUpload2;
         }
+    
+        return $this;
     }
     
     public function getThumbnailModeMessageImageUpload2(): string
@@ -1165,11 +1229,13 @@ abstract class AbstractAppSettings
         return $this->thumbnailModeMessageImageUpload2;
     }
     
-    public function setThumbnailModeMessageImageUpload2(string $thumbnailModeMessageImageUpload2): void
+    public function setThumbnailModeMessageImageUpload2(string $thumbnailModeMessageImageUpload2): self
     {
         if ($this->thumbnailModeMessageImageUpload2 !== $thumbnailModeMessageImageUpload2) {
             $this->thumbnailModeMessageImageUpload2 = $thumbnailModeMessageImageUpload2 ?? '';
         }
+    
+        return $this;
     }
     
     public function getThumbnailWidthMessageImageUpload2View(): int
@@ -1177,11 +1243,13 @@ abstract class AbstractAppSettings
         return $this->thumbnailWidthMessageImageUpload2View;
     }
     
-    public function setThumbnailWidthMessageImageUpload2View(int $thumbnailWidthMessageImageUpload2View): void
+    public function setThumbnailWidthMessageImageUpload2View(int $thumbnailWidthMessageImageUpload2View): self
     {
         if ((int) $this->thumbnailWidthMessageImageUpload2View !== $thumbnailWidthMessageImageUpload2View) {
             $this->thumbnailWidthMessageImageUpload2View = $thumbnailWidthMessageImageUpload2View;
         }
+    
+        return $this;
     }
     
     public function getThumbnailHeightMessageImageUpload2View(): int
@@ -1189,11 +1257,13 @@ abstract class AbstractAppSettings
         return $this->thumbnailHeightMessageImageUpload2View;
     }
     
-    public function setThumbnailHeightMessageImageUpload2View(int $thumbnailHeightMessageImageUpload2View): void
+    public function setThumbnailHeightMessageImageUpload2View(int $thumbnailHeightMessageImageUpload2View): self
     {
         if ((int) $this->thumbnailHeightMessageImageUpload2View !== $thumbnailHeightMessageImageUpload2View) {
             $this->thumbnailHeightMessageImageUpload2View = $thumbnailHeightMessageImageUpload2View;
         }
+    
+        return $this;
     }
     
     public function getThumbnailWidthMessageImageUpload2Display(): int
@@ -1201,11 +1271,13 @@ abstract class AbstractAppSettings
         return $this->thumbnailWidthMessageImageUpload2Display;
     }
     
-    public function setThumbnailWidthMessageImageUpload2Display(int $thumbnailWidthMessageImageUpload2Display): void
+    public function setThumbnailWidthMessageImageUpload2Display(int $thumbnailWidthMessageImageUpload2Display): self
     {
         if ((int) $this->thumbnailWidthMessageImageUpload2Display !== $thumbnailWidthMessageImageUpload2Display) {
             $this->thumbnailWidthMessageImageUpload2Display = $thumbnailWidthMessageImageUpload2Display;
         }
+    
+        return $this;
     }
     
     public function getThumbnailHeightMessageImageUpload2Display(): int
@@ -1213,11 +1285,13 @@ abstract class AbstractAppSettings
         return $this->thumbnailHeightMessageImageUpload2Display;
     }
     
-    public function setThumbnailHeightMessageImageUpload2Display(int $thumbnailHeightMessageImageUpload2Display): void
+    public function setThumbnailHeightMessageImageUpload2Display(int $thumbnailHeightMessageImageUpload2Display): self
     {
         if ((int) $this->thumbnailHeightMessageImageUpload2Display !== $thumbnailHeightMessageImageUpload2Display) {
             $this->thumbnailHeightMessageImageUpload2Display = $thumbnailHeightMessageImageUpload2Display;
         }
+    
+        return $this;
     }
     
     public function getThumbnailWidthMessageImageUpload2Edit(): int
@@ -1225,11 +1299,13 @@ abstract class AbstractAppSettings
         return $this->thumbnailWidthMessageImageUpload2Edit;
     }
     
-    public function setThumbnailWidthMessageImageUpload2Edit(int $thumbnailWidthMessageImageUpload2Edit): void
+    public function setThumbnailWidthMessageImageUpload2Edit(int $thumbnailWidthMessageImageUpload2Edit): self
     {
         if ((int) $this->thumbnailWidthMessageImageUpload2Edit !== $thumbnailWidthMessageImageUpload2Edit) {
             $this->thumbnailWidthMessageImageUpload2Edit = $thumbnailWidthMessageImageUpload2Edit;
         }
+    
+        return $this;
     }
     
     public function getThumbnailHeightMessageImageUpload2Edit(): int
@@ -1237,11 +1313,13 @@ abstract class AbstractAppSettings
         return $this->thumbnailHeightMessageImageUpload2Edit;
     }
     
-    public function setThumbnailHeightMessageImageUpload2Edit(int $thumbnailHeightMessageImageUpload2Edit): void
+    public function setThumbnailHeightMessageImageUpload2Edit(int $thumbnailHeightMessageImageUpload2Edit): self
     {
         if ((int) $this->thumbnailHeightMessageImageUpload2Edit !== $thumbnailHeightMessageImageUpload2Edit) {
             $this->thumbnailHeightMessageImageUpload2Edit = $thumbnailHeightMessageImageUpload2Edit;
         }
+    
+        return $this;
     }
     
     public function getEnableShrinkingForMessageImageUpload3(): bool
@@ -1249,11 +1327,13 @@ abstract class AbstractAppSettings
         return $this->enableShrinkingForMessageImageUpload3;
     }
     
-    public function setEnableShrinkingForMessageImageUpload3(bool $enableShrinkingForMessageImageUpload3): void
+    public function setEnableShrinkingForMessageImageUpload3(bool $enableShrinkingForMessageImageUpload3): self
     {
         if ((bool) $this->enableShrinkingForMessageImageUpload3 !== $enableShrinkingForMessageImageUpload3) {
             $this->enableShrinkingForMessageImageUpload3 = $enableShrinkingForMessageImageUpload3;
         }
+    
+        return $this;
     }
     
     public function getShrinkWidthMessageImageUpload3(): int
@@ -1261,11 +1341,13 @@ abstract class AbstractAppSettings
         return $this->shrinkWidthMessageImageUpload3;
     }
     
-    public function setShrinkWidthMessageImageUpload3(int $shrinkWidthMessageImageUpload3): void
+    public function setShrinkWidthMessageImageUpload3(int $shrinkWidthMessageImageUpload3): self
     {
         if ((int) $this->shrinkWidthMessageImageUpload3 !== $shrinkWidthMessageImageUpload3) {
             $this->shrinkWidthMessageImageUpload3 = $shrinkWidthMessageImageUpload3;
         }
+    
+        return $this;
     }
     
     public function getShrinkHeightMessageImageUpload3(): int
@@ -1273,11 +1355,13 @@ abstract class AbstractAppSettings
         return $this->shrinkHeightMessageImageUpload3;
     }
     
-    public function setShrinkHeightMessageImageUpload3(int $shrinkHeightMessageImageUpload3): void
+    public function setShrinkHeightMessageImageUpload3(int $shrinkHeightMessageImageUpload3): self
     {
         if ((int) $this->shrinkHeightMessageImageUpload3 !== $shrinkHeightMessageImageUpload3) {
             $this->shrinkHeightMessageImageUpload3 = $shrinkHeightMessageImageUpload3;
         }
+    
+        return $this;
     }
     
     public function getThumbnailModeMessageImageUpload3(): string
@@ -1285,11 +1369,13 @@ abstract class AbstractAppSettings
         return $this->thumbnailModeMessageImageUpload3;
     }
     
-    public function setThumbnailModeMessageImageUpload3(string $thumbnailModeMessageImageUpload3): void
+    public function setThumbnailModeMessageImageUpload3(string $thumbnailModeMessageImageUpload3): self
     {
         if ($this->thumbnailModeMessageImageUpload3 !== $thumbnailModeMessageImageUpload3) {
             $this->thumbnailModeMessageImageUpload3 = $thumbnailModeMessageImageUpload3 ?? '';
         }
+    
+        return $this;
     }
     
     public function getThumbnailWidthMessageImageUpload3View(): int
@@ -1297,11 +1383,13 @@ abstract class AbstractAppSettings
         return $this->thumbnailWidthMessageImageUpload3View;
     }
     
-    public function setThumbnailWidthMessageImageUpload3View(int $thumbnailWidthMessageImageUpload3View): void
+    public function setThumbnailWidthMessageImageUpload3View(int $thumbnailWidthMessageImageUpload3View): self
     {
         if ((int) $this->thumbnailWidthMessageImageUpload3View !== $thumbnailWidthMessageImageUpload3View) {
             $this->thumbnailWidthMessageImageUpload3View = $thumbnailWidthMessageImageUpload3View;
         }
+    
+        return $this;
     }
     
     public function getThumbnailHeightMessageImageUpload3View(): int
@@ -1309,11 +1397,13 @@ abstract class AbstractAppSettings
         return $this->thumbnailHeightMessageImageUpload3View;
     }
     
-    public function setThumbnailHeightMessageImageUpload3View(int $thumbnailHeightMessageImageUpload3View): void
+    public function setThumbnailHeightMessageImageUpload3View(int $thumbnailHeightMessageImageUpload3View): self
     {
         if ((int) $this->thumbnailHeightMessageImageUpload3View !== $thumbnailHeightMessageImageUpload3View) {
             $this->thumbnailHeightMessageImageUpload3View = $thumbnailHeightMessageImageUpload3View;
         }
+    
+        return $this;
     }
     
     public function getThumbnailWidthMessageImageUpload3Display(): int
@@ -1321,11 +1411,13 @@ abstract class AbstractAppSettings
         return $this->thumbnailWidthMessageImageUpload3Display;
     }
     
-    public function setThumbnailWidthMessageImageUpload3Display(int $thumbnailWidthMessageImageUpload3Display): void
+    public function setThumbnailWidthMessageImageUpload3Display(int $thumbnailWidthMessageImageUpload3Display): self
     {
         if ((int) $this->thumbnailWidthMessageImageUpload3Display !== $thumbnailWidthMessageImageUpload3Display) {
             $this->thumbnailWidthMessageImageUpload3Display = $thumbnailWidthMessageImageUpload3Display;
         }
+    
+        return $this;
     }
     
     public function getThumbnailHeightMessageImageUpload3Display(): int
@@ -1333,11 +1425,13 @@ abstract class AbstractAppSettings
         return $this->thumbnailHeightMessageImageUpload3Display;
     }
     
-    public function setThumbnailHeightMessageImageUpload3Display(int $thumbnailHeightMessageImageUpload3Display): void
+    public function setThumbnailHeightMessageImageUpload3Display(int $thumbnailHeightMessageImageUpload3Display): self
     {
         if ((int) $this->thumbnailHeightMessageImageUpload3Display !== $thumbnailHeightMessageImageUpload3Display) {
             $this->thumbnailHeightMessageImageUpload3Display = $thumbnailHeightMessageImageUpload3Display;
         }
+    
+        return $this;
     }
     
     public function getThumbnailWidthMessageImageUpload3Edit(): int
@@ -1345,11 +1439,13 @@ abstract class AbstractAppSettings
         return $this->thumbnailWidthMessageImageUpload3Edit;
     }
     
-    public function setThumbnailWidthMessageImageUpload3Edit(int $thumbnailWidthMessageImageUpload3Edit): void
+    public function setThumbnailWidthMessageImageUpload3Edit(int $thumbnailWidthMessageImageUpload3Edit): self
     {
         if ((int) $this->thumbnailWidthMessageImageUpload3Edit !== $thumbnailWidthMessageImageUpload3Edit) {
             $this->thumbnailWidthMessageImageUpload3Edit = $thumbnailWidthMessageImageUpload3Edit;
         }
+    
+        return $this;
     }
     
     public function getThumbnailHeightMessageImageUpload3Edit(): int
@@ -1357,11 +1453,13 @@ abstract class AbstractAppSettings
         return $this->thumbnailHeightMessageImageUpload3Edit;
     }
     
-    public function setThumbnailHeightMessageImageUpload3Edit(int $thumbnailHeightMessageImageUpload3Edit): void
+    public function setThumbnailHeightMessageImageUpload3Edit(int $thumbnailHeightMessageImageUpload3Edit): self
     {
         if ((int) $this->thumbnailHeightMessageImageUpload3Edit !== $thumbnailHeightMessageImageUpload3Edit) {
             $this->thumbnailHeightMessageImageUpload3Edit = $thumbnailHeightMessageImageUpload3Edit;
         }
+    
+        return $this;
     }
     
     public function getEnableShrinkingForMessageImageUpload4(): bool
@@ -1369,11 +1467,13 @@ abstract class AbstractAppSettings
         return $this->enableShrinkingForMessageImageUpload4;
     }
     
-    public function setEnableShrinkingForMessageImageUpload4(bool $enableShrinkingForMessageImageUpload4): void
+    public function setEnableShrinkingForMessageImageUpload4(bool $enableShrinkingForMessageImageUpload4): self
     {
         if ((bool) $this->enableShrinkingForMessageImageUpload4 !== $enableShrinkingForMessageImageUpload4) {
             $this->enableShrinkingForMessageImageUpload4 = $enableShrinkingForMessageImageUpload4;
         }
+    
+        return $this;
     }
     
     public function getShrinkWidthMessageImageUpload4(): int
@@ -1381,11 +1481,13 @@ abstract class AbstractAppSettings
         return $this->shrinkWidthMessageImageUpload4;
     }
     
-    public function setShrinkWidthMessageImageUpload4(int $shrinkWidthMessageImageUpload4): void
+    public function setShrinkWidthMessageImageUpload4(int $shrinkWidthMessageImageUpload4): self
     {
         if ((int) $this->shrinkWidthMessageImageUpload4 !== $shrinkWidthMessageImageUpload4) {
             $this->shrinkWidthMessageImageUpload4 = $shrinkWidthMessageImageUpload4;
         }
+    
+        return $this;
     }
     
     public function getShrinkHeightMessageImageUpload4(): int
@@ -1393,11 +1495,13 @@ abstract class AbstractAppSettings
         return $this->shrinkHeightMessageImageUpload4;
     }
     
-    public function setShrinkHeightMessageImageUpload4(int $shrinkHeightMessageImageUpload4): void
+    public function setShrinkHeightMessageImageUpload4(int $shrinkHeightMessageImageUpload4): self
     {
         if ((int) $this->shrinkHeightMessageImageUpload4 !== $shrinkHeightMessageImageUpload4) {
             $this->shrinkHeightMessageImageUpload4 = $shrinkHeightMessageImageUpload4;
         }
+    
+        return $this;
     }
     
     public function getThumbnailModeMessageImageUpload4(): string
@@ -1405,11 +1509,13 @@ abstract class AbstractAppSettings
         return $this->thumbnailModeMessageImageUpload4;
     }
     
-    public function setThumbnailModeMessageImageUpload4(string $thumbnailModeMessageImageUpload4): void
+    public function setThumbnailModeMessageImageUpload4(string $thumbnailModeMessageImageUpload4): self
     {
         if ($this->thumbnailModeMessageImageUpload4 !== $thumbnailModeMessageImageUpload4) {
             $this->thumbnailModeMessageImageUpload4 = $thumbnailModeMessageImageUpload4 ?? '';
         }
+    
+        return $this;
     }
     
     public function getThumbnailWidthMessageImageUpload4View(): int
@@ -1417,11 +1523,13 @@ abstract class AbstractAppSettings
         return $this->thumbnailWidthMessageImageUpload4View;
     }
     
-    public function setThumbnailWidthMessageImageUpload4View(int $thumbnailWidthMessageImageUpload4View): void
+    public function setThumbnailWidthMessageImageUpload4View(int $thumbnailWidthMessageImageUpload4View): self
     {
         if ((int) $this->thumbnailWidthMessageImageUpload4View !== $thumbnailWidthMessageImageUpload4View) {
             $this->thumbnailWidthMessageImageUpload4View = $thumbnailWidthMessageImageUpload4View;
         }
+    
+        return $this;
     }
     
     public function getThumbnailHeightMessageImageUpload4View(): int
@@ -1429,11 +1537,13 @@ abstract class AbstractAppSettings
         return $this->thumbnailHeightMessageImageUpload4View;
     }
     
-    public function setThumbnailHeightMessageImageUpload4View(int $thumbnailHeightMessageImageUpload4View): void
+    public function setThumbnailHeightMessageImageUpload4View(int $thumbnailHeightMessageImageUpload4View): self
     {
         if ((int) $this->thumbnailHeightMessageImageUpload4View !== $thumbnailHeightMessageImageUpload4View) {
             $this->thumbnailHeightMessageImageUpload4View = $thumbnailHeightMessageImageUpload4View;
         }
+    
+        return $this;
     }
     
     public function getThumbnailWidthMessageImageUpload4Display(): int
@@ -1441,11 +1551,13 @@ abstract class AbstractAppSettings
         return $this->thumbnailWidthMessageImageUpload4Display;
     }
     
-    public function setThumbnailWidthMessageImageUpload4Display(int $thumbnailWidthMessageImageUpload4Display): void
+    public function setThumbnailWidthMessageImageUpload4Display(int $thumbnailWidthMessageImageUpload4Display): self
     {
         if ((int) $this->thumbnailWidthMessageImageUpload4Display !== $thumbnailWidthMessageImageUpload4Display) {
             $this->thumbnailWidthMessageImageUpload4Display = $thumbnailWidthMessageImageUpload4Display;
         }
+    
+        return $this;
     }
     
     public function getThumbnailHeightMessageImageUpload4Display(): int
@@ -1453,11 +1565,13 @@ abstract class AbstractAppSettings
         return $this->thumbnailHeightMessageImageUpload4Display;
     }
     
-    public function setThumbnailHeightMessageImageUpload4Display(int $thumbnailHeightMessageImageUpload4Display): void
+    public function setThumbnailHeightMessageImageUpload4Display(int $thumbnailHeightMessageImageUpload4Display): self
     {
         if ((int) $this->thumbnailHeightMessageImageUpload4Display !== $thumbnailHeightMessageImageUpload4Display) {
             $this->thumbnailHeightMessageImageUpload4Display = $thumbnailHeightMessageImageUpload4Display;
         }
+    
+        return $this;
     }
     
     public function getThumbnailWidthMessageImageUpload4Edit(): int
@@ -1465,11 +1579,13 @@ abstract class AbstractAppSettings
         return $this->thumbnailWidthMessageImageUpload4Edit;
     }
     
-    public function setThumbnailWidthMessageImageUpload4Edit(int $thumbnailWidthMessageImageUpload4Edit): void
+    public function setThumbnailWidthMessageImageUpload4Edit(int $thumbnailWidthMessageImageUpload4Edit): self
     {
         if ((int) $this->thumbnailWidthMessageImageUpload4Edit !== $thumbnailWidthMessageImageUpload4Edit) {
             $this->thumbnailWidthMessageImageUpload4Edit = $thumbnailWidthMessageImageUpload4Edit;
         }
+    
+        return $this;
     }
     
     public function getThumbnailHeightMessageImageUpload4Edit(): int
@@ -1477,11 +1593,13 @@ abstract class AbstractAppSettings
         return $this->thumbnailHeightMessageImageUpload4Edit;
     }
     
-    public function setThumbnailHeightMessageImageUpload4Edit(int $thumbnailHeightMessageImageUpload4Edit): void
+    public function setThumbnailHeightMessageImageUpload4Edit(int $thumbnailHeightMessageImageUpload4Edit): self
     {
         if ((int) $this->thumbnailHeightMessageImageUpload4Edit !== $thumbnailHeightMessageImageUpload4Edit) {
             $this->thumbnailHeightMessageImageUpload4Edit = $thumbnailHeightMessageImageUpload4Edit;
         }
+    
+        return $this;
     }
     
     public function getEnableShrinkingForImageTheFile(): bool
@@ -1489,11 +1607,13 @@ abstract class AbstractAppSettings
         return $this->enableShrinkingForImageTheFile;
     }
     
-    public function setEnableShrinkingForImageTheFile(bool $enableShrinkingForImageTheFile): void
+    public function setEnableShrinkingForImageTheFile(bool $enableShrinkingForImageTheFile): self
     {
         if ((bool) $this->enableShrinkingForImageTheFile !== $enableShrinkingForImageTheFile) {
             $this->enableShrinkingForImageTheFile = $enableShrinkingForImageTheFile;
         }
+    
+        return $this;
     }
     
     public function getShrinkWidthImageTheFile(): int
@@ -1501,11 +1621,13 @@ abstract class AbstractAppSettings
         return $this->shrinkWidthImageTheFile;
     }
     
-    public function setShrinkWidthImageTheFile(int $shrinkWidthImageTheFile): void
+    public function setShrinkWidthImageTheFile(int $shrinkWidthImageTheFile): self
     {
         if ((int) $this->shrinkWidthImageTheFile !== $shrinkWidthImageTheFile) {
             $this->shrinkWidthImageTheFile = $shrinkWidthImageTheFile;
         }
+    
+        return $this;
     }
     
     public function getShrinkHeightImageTheFile(): int
@@ -1513,11 +1635,13 @@ abstract class AbstractAppSettings
         return $this->shrinkHeightImageTheFile;
     }
     
-    public function setShrinkHeightImageTheFile(int $shrinkHeightImageTheFile): void
+    public function setShrinkHeightImageTheFile(int $shrinkHeightImageTheFile): self
     {
         if ((int) $this->shrinkHeightImageTheFile !== $shrinkHeightImageTheFile) {
             $this->shrinkHeightImageTheFile = $shrinkHeightImageTheFile;
         }
+    
+        return $this;
     }
     
     public function getThumbnailModeImageTheFile(): string
@@ -1525,11 +1649,13 @@ abstract class AbstractAppSettings
         return $this->thumbnailModeImageTheFile;
     }
     
-    public function setThumbnailModeImageTheFile(string $thumbnailModeImageTheFile): void
+    public function setThumbnailModeImageTheFile(string $thumbnailModeImageTheFile): self
     {
         if ($this->thumbnailModeImageTheFile !== $thumbnailModeImageTheFile) {
             $this->thumbnailModeImageTheFile = $thumbnailModeImageTheFile ?? '';
         }
+    
+        return $this;
     }
     
     public function getModerationGroupForMessages()/*: int*/
@@ -1537,11 +1663,13 @@ abstract class AbstractAppSettings
         return $this->moderationGroupForMessages;
     }
     
-    public function setModerationGroupForMessages(/*int */$moderationGroupForMessages): void
+    public function setModerationGroupForMessages(/*int */$moderationGroupForMessages): self
     {
         if ($this->moderationGroupForMessages !== $moderationGroupForMessages) {
             $this->moderationGroupForMessages = $moderationGroupForMessages;
         }
+    
+        return $this;
     }
     
     public function getAllowModerationSpecificCreatorForMessage(): bool
@@ -1549,11 +1677,13 @@ abstract class AbstractAppSettings
         return $this->allowModerationSpecificCreatorForMessage;
     }
     
-    public function setAllowModerationSpecificCreatorForMessage(bool $allowModerationSpecificCreatorForMessage): void
+    public function setAllowModerationSpecificCreatorForMessage(bool $allowModerationSpecificCreatorForMessage): self
     {
         if ((bool) $this->allowModerationSpecificCreatorForMessage !== $allowModerationSpecificCreatorForMessage) {
             $this->allowModerationSpecificCreatorForMessage = $allowModerationSpecificCreatorForMessage;
         }
+    
+        return $this;
     }
     
     public function getAllowModerationSpecificCreationDateForMessage(): bool
@@ -1561,11 +1691,13 @@ abstract class AbstractAppSettings
         return $this->allowModerationSpecificCreationDateForMessage;
     }
     
-    public function setAllowModerationSpecificCreationDateForMessage(bool $allowModerationSpecificCreationDateForMessage): void
+    public function setAllowModerationSpecificCreationDateForMessage(bool $allowModerationSpecificCreationDateForMessage): self
     {
         if ((bool) $this->allowModerationSpecificCreationDateForMessage !== $allowModerationSpecificCreationDateForMessage) {
             $this->allowModerationSpecificCreationDateForMessage = $allowModerationSpecificCreationDateForMessage;
         }
+    
+        return $this;
     }
     
     public function getEnabledFinderTypes(): string
@@ -1573,11 +1705,13 @@ abstract class AbstractAppSettings
         return $this->enabledFinderTypes;
     }
     
-    public function setEnabledFinderTypes(string $enabledFinderTypes): void
+    public function setEnabledFinderTypes(string $enabledFinderTypes): self
     {
         if ($this->enabledFinderTypes !== $enabledFinderTypes) {
             $this->enabledFinderTypes = $enabledFinderTypes ?? '';
         }
+    
+        return $this;
     }
     
     /**

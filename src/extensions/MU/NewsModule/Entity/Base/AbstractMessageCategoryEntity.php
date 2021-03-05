@@ -41,10 +41,12 @@ abstract class AbstractMessageCategoryEntity extends AbstractCategoryAssignment
         return $this->entity;
     }
     
-    public function setEntity($entity): void
+    public function setEntity($entity): self
     {
         if ($this->entity !== $entity) {
             $this->entity = $entity ?? '';
         }
+    
+        return $this;
     }
 }

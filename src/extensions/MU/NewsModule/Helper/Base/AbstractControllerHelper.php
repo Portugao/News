@@ -20,6 +20,7 @@ namespace MU\NewsModule\Helper\Base;
 use Exception;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
+use Symfony\Component\Routing\RouterInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Zikula\Bundle\CoreBundle\Doctrine\EntityAccess;
 use Zikula\Bundle\CoreBundle\RouteUrl;
@@ -45,6 +46,11 @@ abstract class AbstractControllerHelper
      * @var RequestStack
      */
     protected $requestStack;
+    
+    /**
+     * @var RouterInterface
+     */
+    protected $router;
     
     /**
      * @var FormFactoryInterface
@@ -84,6 +90,7 @@ abstract class AbstractControllerHelper
     public function __construct(
         TranslatorInterface $translator,
         RequestStack $requestStack,
+        RouterInterface $router,
         ExpiryHelper $expiryHelper,
         FormFactoryInterface $formFactory,
         VariableApiInterface $variableApi,
@@ -95,6 +102,7 @@ abstract class AbstractControllerHelper
     ) {
         $this->setTranslator($translator);
         $this->requestStack = $requestStack;
+        $this->router = $router;
         $this->formFactory = $formFactory;
         $this->variableApi = $variableApi;
         $this->entityFactory = $entityFactory;
@@ -205,7 +213,19 @@ abstract class AbstractControllerHelper
         $quickNavFormType = 'MU\NewsModule\Form\Type\QuickNavigation\\'
             . ucfirst($objectType) . 'QuickNavType'
         ;
+    
         $quickNavForm = $this->formFactory->create($quickNavFormType, $templateParameters);
+        $routeName = $request->get('_route', '');
+        $routeParams = $request->attributes->get('_route_params');
+        if (1 !== $templateParameters['all']) {
+            // let form target page number 1 to avoid empty page if filters have been set
+            $routeParams['page'] = 1;
+        }
+        $targetRoute = $this->router->generate($routeName, $routeParams);
+    
+        $quickNavForm = $this->formFactory->create($quickNavFormType, $templateParameters, [
+            'action' => $targetRoute
+        ]);
         $quickNavForm->handleRequest($request);
         if ($quickNavForm->isSubmitted()) {
             $quickNavData = $quickNavForm->getData();

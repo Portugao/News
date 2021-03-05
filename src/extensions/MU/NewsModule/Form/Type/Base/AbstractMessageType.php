@@ -198,7 +198,7 @@ abstract class AbstractMessageType extends AbstractType
             'label' => 'Permalink:',
             'required' => 'create' !== $options['mode'],
             'attr' => [
-                'maxlength' => 255,
+                'maxlength' => 190,
                 'class' => 'validate-unique',
                 /** @Ignore */
                 'title' => $helpText,
@@ -447,8 +447,7 @@ abstract class AbstractMessageType extends AbstractType
     public function addOutgoingRelationshipFields(FormBuilderInterface $builder, array $options = []): void
     {
         $queryBuilder = function (EntityRepository $er) {
-            // select without joins
-            return $er->getListQueryBuilder('', '', false);
+            return $this->entityFactory->getRepository('image')->getListQueryBuilder('', '', false);
         };
         $entityDisplayHelper = $this->entityDisplayHelper;
         $choiceLabelClosure = function ($entity) use ($entityDisplayHelper) {
@@ -505,9 +504,6 @@ abstract class AbstractMessageType extends AbstractType
             'label' => 'Cancel',
             'validate' => false,
             'icon' => 'fa-times',
-            'attr' => [
-                'formnovalidate' => 'formnovalidate',
-            ],
         ]);
     }
 

@@ -284,7 +284,7 @@ class AbstractMenuBuilder
                 if ($this->permissionHelper->hasComponentPermission($objectType, ACCESS_COMMENT)) {
                     $routeParameters = $query->all();
                     if (1 === $query->getInt('own')) {
-                        unset($routeParameters['own']);
+                        $routeParameters['own'] = 0;
                         $menu->addChild('Show also entries from other users', [
                             'route' => $routePrefix . $routeArea . 'view',
                             'routeParameters' => $routeParameters,

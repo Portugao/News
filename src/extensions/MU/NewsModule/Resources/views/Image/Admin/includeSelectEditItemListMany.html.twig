@@ -9,7 +9,7 @@
      <a id="{{ idPrefixItem }}Remove" href="javascript:mUNewsRemoveRelatedItem('{{ idPrefix }}', '{{ item.getKey() }}');"><i class="fas fa-trash-alt"></i></a>
     <br />
     {% if item.theFile is not empty and item.theFileMeta.isImage %}
-        <img src="{{ item.theFile.getPathname()|munewsmodule_relativePath|imagine_filter('zkroot', relationThumbRuntimeOptions) }}" alt="{{ item|munewsmodule_formattedTitle|e('html_attr') }}" width="{{ relationThumbRuntimeOptions.thumbnail.size[0] }}" height="{{ relationThumbRuntimeOptions.thumbnail.size[1] }}" class="img-rounded" />
+        <img src="{{ item.theFile.getPathname()|munewsmodule_relativePath|imagine_filter('zkroot', relationThumbRuntimeOptions) }}" alt="{{ item|munewsmodule_formattedTitle|e('html_attr') }}" width="{{ relationThumbRuntimeOptions.thumbnail.size[0] }}" height="{{ relationThumbRuntimeOptions.thumbnail.size[1] }}" class="rounded" />
     {% endif %}
 </li>
 {% endfor %}

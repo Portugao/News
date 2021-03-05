@@ -1,17 +1,28 @@
 {# purpose of this template: edit view of generic item list content type #}
-{{ form_row(form.objectType) }}
+{% if form.objectType is defined %}
+    {{ form_row(form.objectType) }}
+{% endif %}
 {% if form.categories is defined %}
     {{ form_row(form.categories) }}
 {% endif %}
-{{ form_row(form.sorting) }}
-{{ form_row(form.amount) }}
+{% if form.sorting is defined %}
+    {{ form_row(form.sorting) }}
+{% endif %}
+{% if form.amount is defined %}
+    {{ form_row(form.amount) }}
+{% endif %}
 
-{{ form_row(form.template) }}
+{% if form.template is defined %}
+    {{ form_row(form.template) }}
+    <div id="customTemplateArea">
+        {% if form.customTemplate is defined %}
+            {{ form_row(form.customTemplate) }}
+        {% endif %}
+    </div>
+{% endif %}
 
-<div id="customTemplateArea">
-    {{ form_row(form.customTemplate) }}
-</div>
-
-{{ form_row(form.filter) }}
+{% if form.filter is defined %}
+    {{ form_row(form.filter) }}
+{% endif %}
 
 {{ pageAddAsset('javascript', zasset('@MUNewsModule:js/MUNewsModule.ContentType.List.Edit.js')) }}

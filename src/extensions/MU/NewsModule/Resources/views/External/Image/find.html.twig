@@ -22,14 +22,20 @@
         {{ form_errors(finderForm) }}
         <fieldset>
             <legend>{% trans %}Search and select image{% endtrans %}</legend>
-            {% if getModVar('ZConfig', 'multilingual') %}
+            {% if finderForm.language is defined and getModVar('ZConfig', 'multilingual') %}
                 {{ form_row(finderForm.language) }}
             {% endif %}
-            {{ form_row(finderForm.onlyImages) }}
+            {% if finderForm.onlyImages is defined %}
+                {{ form_row(finderForm.onlyImages) }}
+            {% endif %}
             <div id="imageFieldRow">
-                {{ form_row(finderForm.imageField) }}
+                {% if finderForm.imageField is defined %}
+                    {{ form_row(finderForm.imageField) }}
+                {% endif %}
             </div>
-            {{ form_row(finderForm.pasteAs) }}
+            {% if finderForm.pasteAs is defined %}
+                {{ form_row(finderForm.pasteAs) }}
+            {% endif %}
             <br />
             <div class="form-group row">
                 <label class="col-md-3 col-form-label">{% trans %}Image{% endtrans %}:</label>
@@ -47,7 +53,7 @@
                                     <a href="#" data-itemid="{{ itemId }}">
                                         {% if onlyImages %}
                                             {% set thumbOptions = attribute(thumbRuntimeOptions, 'image' ~ imageField[:1]|upper ~ imageField[1:]) %}
-                                            <img src="{{ attribute(image, imageField).getPathname()|munewsmodule_relativePath|imagine_filter('zkroot', thumbOptions) }}" alt="{{ image|munewsmodule_formattedTitle|e('html_attr') }}" width="{{ thumbOptions.thumbnail.size[0] }}" height="{{ thumbOptions.thumbnail.size[1] }}" class="img-rounded" />
+                                            <img src="{{ attribute(image, imageField).getPathname()|munewsmodule_relativePath|imagine_filter('zkroot', thumbOptions) }}" alt="{{ image|munewsmodule_formattedTitle|e('html_attr') }}" width="{{ thumbOptions.thumbnail.size[0] }}" height="{{ thumbOptions.thumbnail.size[1] }}" class="rounded" />
                                         {% else %}
                                             {{ image|munewsmodule_formattedTitle }}
                                         {% endif %}
@@ -73,11 +79,19 @@
                 </div>
             </div>
 
-            {{ form_row(finderForm.sort) }}
-            {{ form_row(finderForm.sortdir) }}
-            {{ form_row(finderForm.num) }}
+            {% if finderForm.sort is defined %}
+                {{ form_row(finderForm.sort) }}
+            {% endif %}
+            {% if finderForm.sortdir is defined %}
+                {{ form_row(finderForm.sortdir) }}
+            {% endif %}
+            {% if finderForm.num is defined %}
+                {{ form_row(finderForm.num) }}
+            {% endif %}
             <div id="searchTermRow">
-                {{ form_row(finderForm.q) }}
+                {% if finderForm.q is defined %}
+                    {{ form_row(finderForm.q) }}
+                {% endif %}
             </div>
             <div>
                 {{ include(paginator.template) }}

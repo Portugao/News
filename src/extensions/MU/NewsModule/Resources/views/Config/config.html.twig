@@ -75,10 +75,18 @@
                         <legend>{{ tabTitle }}</legend>
                         <p class="alert alert-info">{% trans from 'config' %}Here you can change general News settings.{% endtrans %}</p>
                         
-                        {{ form_row(form.enableAttribution) }}
-                        {{ form_row(form.enableMultiLanguage) }}
-                        {{ form_row(form.showAuthor) }}
-                        {{ form_row(form.showDate) }}
+                        {% if form.enableAttribution is defined %}
+                            {{ form_row(form.enableAttribution) }}
+                        {% endif %}
+                        {% if form.enableMultiLanguage is defined %}
+                            {{ form_row(form.enableMultiLanguage) }}
+                        {% endif %}
+                        {% if form.showAuthor is defined %}
+                            {{ form_row(form.showAuthor) }}
+                        {% endif %}
+                        {% if form.showDate is defined %}
+                            {{ form_row(form.showDate) }}
+                        {% endif %}
                     </fieldset>
                 </div>
                 <div role="tabpanel" class="tab-pane fade" id="tab2" aria-labelledby="vars2Tab">
@@ -87,19 +95,33 @@
                         <legend>{{ tabTitle }}</legend>
                         <p class="alert alert-info">{% trans from 'config' %}This section allows you to specify category-related options.{% endtrans %}</p>
                         
-                        {{ form_row(form.enableCategorization) }}
+                        {% if form.enableCategorization is defined %}
+                            {{ form_row(form.enableCategorization) }}
+                        {% endif %}
                     </fieldset>
                 </div>
                 <div role="tabpanel" class="tab-pane fade" id="tab3" aria-labelledby="vars3Tab">
                     {% set tabTitle = 'Display setting'|trans %}
                     <fieldset>
                         <legend>{{ tabTitle }}</legend>
-                        {{ form_row(form.defaultMessageSorting) }}
-                        {{ form_row(form.defaultMessageSortingBackend) }}
-                        {{ form_row(form.sortingDirection) }}
-                        {{ form_row(form.enableMoreMessagesInCategory) }}
-                        {{ form_row(form.amountOfMoreArticlesInCategory) }}
-                        {{ form_row(form.displayPdfLink) }}
+                        {% if form.defaultMessageSorting is defined %}
+                            {{ form_row(form.defaultMessageSorting) }}
+                        {% endif %}
+                        {% if form.defaultMessageSortingBackend is defined %}
+                            {{ form_row(form.defaultMessageSortingBackend) }}
+                        {% endif %}
+                        {% if form.sortingDirection is defined %}
+                            {{ form_row(form.sortingDirection) }}
+                        {% endif %}
+                        {% if form.enableMoreMessagesInCategory is defined %}
+                            {{ form_row(form.enableMoreMessagesInCategory) }}
+                        {% endif %}
+                        {% if form.amountOfMoreArticlesInCategory is defined %}
+                            {{ form_row(form.amountOfMoreArticlesInCategory) }}
+                        {% endif %}
+                        {% if form.displayPdfLink is defined %}
+                            {{ form_row(form.displayPdfLink) }}
+                        {% endif %}
                     </fieldset>
                 </div>
                 <div role="tabpanel" class="tab-pane fade" id="tab4" aria-labelledby="vars4Tab">
@@ -108,10 +130,18 @@
                         <legend>{{ tabTitle }}</legend>
                         <p class="alert alert-info">{% trans from 'config' %}Here you can customise the picture upload behaviour.{% endtrans %}</p>
                         
-                        {{ form_row(form.enablePictureUpload) }}
-                        {{ form_row(form.imageFloatOnViewPage) }}
-                        {{ form_row(form.imageFloatOnDisplayPage) }}
-                        {{ form_row(form.maxSize) }}
+                        {% if form.enablePictureUpload is defined %}
+                            {{ form_row(form.enablePictureUpload) }}
+                        {% endif %}
+                        {% if form.imageFloatOnViewPage is defined %}
+                            {{ form_row(form.imageFloatOnViewPage) }}
+                        {% endif %}
+                        {% if form.imageFloatOnDisplayPage is defined %}
+                            {{ form_row(form.imageFloatOnDisplayPage) }}
+                        {% endif %}
+                        {% if form.maxSize is defined %}
+                            {{ form_row(form.maxSize) }}
+                        {% endif %}
                     </fieldset>
                 </div>
                 <div role="tabpanel" class="tab-pane fade" id="tab5" aria-labelledby="vars5Tab">
@@ -120,10 +150,18 @@
                         <legend>{{ tabTitle }}</legend>
                         <p class="alert alert-info">{% trans from 'config' %}Here you can configure parameters for list views.{% endtrans %}</p>
                         
-                        {{ form_row(form.messageEntriesPerPage) }}
-                        {{ form_row(form.linkOwnMessagesOnAccountPage) }}
-                        {{ form_row(form.showOnlyOwnEntries) }}
-                        {{ form_row(form.filterDataByLocale) }}
+                        {% if form.messageEntriesPerPage is defined %}
+                            {{ form_row(form.messageEntriesPerPage) }}
+                        {% endif %}
+                        {% if form.linkOwnMessagesOnAccountPage is defined %}
+                            {{ form_row(form.linkOwnMessagesOnAccountPage) }}
+                        {% endif %}
+                        {% if form.showOnlyOwnEntries is defined %}
+                            {{ form_row(form.showOnlyOwnEntries) }}
+                        {% endif %}
+                        {% if form.filterDataByLocale is defined %}
+                            {{ form_row(form.filterDataByLocale) }}
+                        {% endif %}
                     </fieldset>
                 </div>
                 <div role="tabpanel" class="tab-pane fade" id="tabImagesMessageImageUpload1" aria-labelledby="imagesMessageImageUpload1Tab">
@@ -131,18 +169,38 @@
                     <fieldset>
                         <legend>{{ tabTitle }}</legend>
                 
-                        {{ form_row(form.enableShrinkingForMessageImageUpload1) }}
+                        {% if form.enableShrinkingForMessageImageUpload1 is defined %}
+                            {{ form_row(form.enableShrinkingForMessageImageUpload1) }}
+                        {% endif %}
                         <div id="shrinkDetailsMessageImageUpload1">
-                        {{ form_row(form.shrinkWidthMessageImageUpload1) }}
-                        {{ form_row(form.shrinkHeightMessageImageUpload1) }}
+                        {% if form.shrinkWidthMessageImageUpload1 is defined %}
+                            {{ form_row(form.shrinkWidthMessageImageUpload1) }}
+                        {% endif %}
+                        {% if form.shrinkHeightMessageImageUpload1 is defined %}
+                            {{ form_row(form.shrinkHeightMessageImageUpload1) }}
+                        {% endif %}
                         </div>
-                        {{ form_row(form.thumbnailModeMessageImageUpload1) }}
-                        {{ form_row(form.thumbnailWidthMessageImageUpload1View) }}
-                        {{ form_row(form.thumbnailHeightMessageImageUpload1View) }}
-                        {{ form_row(form.thumbnailWidthMessageImageUpload1Display) }}
-                        {{ form_row(form.thumbnailHeightMessageImageUpload1Display) }}
-                        {{ form_row(form.thumbnailWidthMessageImageUpload1Edit) }}
-                        {{ form_row(form.thumbnailHeightMessageImageUpload1Edit) }}
+                        {% if form.thumbnailModeMessageImageUpload1 is defined %}
+                            {{ form_row(form.thumbnailModeMessageImageUpload1) }}
+                        {% endif %}
+                        {% if form.thumbnailWidthMessageImageUpload1View is defined %}
+                            {{ form_row(form.thumbnailWidthMessageImageUpload1View) }}
+                        {% endif %}
+                        {% if form.thumbnailHeightMessageImageUpload1View is defined %}
+                            {{ form_row(form.thumbnailHeightMessageImageUpload1View) }}
+                        {% endif %}
+                        {% if form.thumbnailWidthMessageImageUpload1Display is defined %}
+                            {{ form_row(form.thumbnailWidthMessageImageUpload1Display) }}
+                        {% endif %}
+                        {% if form.thumbnailHeightMessageImageUpload1Display is defined %}
+                            {{ form_row(form.thumbnailHeightMessageImageUpload1Display) }}
+                        {% endif %}
+                        {% if form.thumbnailWidthMessageImageUpload1Edit is defined %}
+                            {{ form_row(form.thumbnailWidthMessageImageUpload1Edit) }}
+                        {% endif %}
+                        {% if form.thumbnailHeightMessageImageUpload1Edit is defined %}
+                            {{ form_row(form.thumbnailHeightMessageImageUpload1Edit) }}
+                        {% endif %}
                     </fieldset>
                 </div>
                 <div role="tabpanel" class="tab-pane fade" id="tabImagesMessageImageUpload2" aria-labelledby="imagesMessageImageUpload2Tab">
@@ -150,18 +208,38 @@
                     <fieldset>
                         <legend>{{ tabTitle }}</legend>
                 
-                        {{ form_row(form.enableShrinkingForMessageImageUpload2) }}
+                        {% if form.enableShrinkingForMessageImageUpload2 is defined %}
+                            {{ form_row(form.enableShrinkingForMessageImageUpload2) }}
+                        {% endif %}
                         <div id="shrinkDetailsMessageImageUpload2">
-                        {{ form_row(form.shrinkWidthMessageImageUpload2) }}
-                        {{ form_row(form.shrinkHeightMessageImageUpload2) }}
+                        {% if form.shrinkWidthMessageImageUpload2 is defined %}
+                            {{ form_row(form.shrinkWidthMessageImageUpload2) }}
+                        {% endif %}
+                        {% if form.shrinkHeightMessageImageUpload2 is defined %}
+                            {{ form_row(form.shrinkHeightMessageImageUpload2) }}
+                        {% endif %}
                         </div>
-                        {{ form_row(form.thumbnailModeMessageImageUpload2) }}
-                        {{ form_row(form.thumbnailWidthMessageImageUpload2View) }}
-                        {{ form_row(form.thumbnailHeightMessageImageUpload2View) }}
-                        {{ form_row(form.thumbnailWidthMessageImageUpload2Display) }}
-                        {{ form_row(form.thumbnailHeightMessageImageUpload2Display) }}
-                        {{ form_row(form.thumbnailWidthMessageImageUpload2Edit) }}
-                        {{ form_row(form.thumbnailHeightMessageImageUpload2Edit) }}
+                        {% if form.thumbnailModeMessageImageUpload2 is defined %}
+                            {{ form_row(form.thumbnailModeMessageImageUpload2) }}
+                        {% endif %}
+                        {% if form.thumbnailWidthMessageImageUpload2View is defined %}
+                            {{ form_row(form.thumbnailWidthMessageImageUpload2View) }}
+                        {% endif %}
+                        {% if form.thumbnailHeightMessageImageUpload2View is defined %}
+                            {{ form_row(form.thumbnailHeightMessageImageUpload2View) }}
+                        {% endif %}
+                        {% if form.thumbnailWidthMessageImageUpload2Display is defined %}
+                            {{ form_row(form.thumbnailWidthMessageImageUpload2Display) }}
+                        {% endif %}
+                        {% if form.thumbnailHeightMessageImageUpload2Display is defined %}
+                            {{ form_row(form.thumbnailHeightMessageImageUpload2Display) }}
+                        {% endif %}
+                        {% if form.thumbnailWidthMessageImageUpload2Edit is defined %}
+                            {{ form_row(form.thumbnailWidthMessageImageUpload2Edit) }}
+                        {% endif %}
+                        {% if form.thumbnailHeightMessageImageUpload2Edit is defined %}
+                            {{ form_row(form.thumbnailHeightMessageImageUpload2Edit) }}
+                        {% endif %}
                     </fieldset>
                 </div>
                 <div role="tabpanel" class="tab-pane fade" id="tabImagesMessageImageUpload3" aria-labelledby="imagesMessageImageUpload3Tab">
@@ -169,18 +247,38 @@
                     <fieldset>
                         <legend>{{ tabTitle }}</legend>
                 
-                        {{ form_row(form.enableShrinkingForMessageImageUpload3) }}
+                        {% if form.enableShrinkingForMessageImageUpload3 is defined %}
+                            {{ form_row(form.enableShrinkingForMessageImageUpload3) }}
+                        {% endif %}
                         <div id="shrinkDetailsMessageImageUpload3">
-                        {{ form_row(form.shrinkWidthMessageImageUpload3) }}
-                        {{ form_row(form.shrinkHeightMessageImageUpload3) }}
+                        {% if form.shrinkWidthMessageImageUpload3 is defined %}
+                            {{ form_row(form.shrinkWidthMessageImageUpload3) }}
+                        {% endif %}
+                        {% if form.shrinkHeightMessageImageUpload3 is defined %}
+                            {{ form_row(form.shrinkHeightMessageImageUpload3) }}
+                        {% endif %}
                         </div>
-                        {{ form_row(form.thumbnailModeMessageImageUpload3) }}
-                        {{ form_row(form.thumbnailWidthMessageImageUpload3View) }}
-                        {{ form_row(form.thumbnailHeightMessageImageUpload3View) }}
-                        {{ form_row(form.thumbnailWidthMessageImageUpload3Display) }}
-                        {{ form_row(form.thumbnailHeightMessageImageUpload3Display) }}
-                        {{ form_row(form.thumbnailWidthMessageImageUpload3Edit) }}
-                        {{ form_row(form.thumbnailHeightMessageImageUpload3Edit) }}
+                        {% if form.thumbnailModeMessageImageUpload3 is defined %}
+                            {{ form_row(form.thumbnailModeMessageImageUpload3) }}
+                        {% endif %}
+                        {% if form.thumbnailWidthMessageImageUpload3View is defined %}
+                            {{ form_row(form.thumbnailWidthMessageImageUpload3View) }}
+                        {% endif %}
+                        {% if form.thumbnailHeightMessageImageUpload3View is defined %}
+                            {{ form_row(form.thumbnailHeightMessageImageUpload3View) }}
+                        {% endif %}
+                        {% if form.thumbnailWidthMessageImageUpload3Display is defined %}
+                            {{ form_row(form.thumbnailWidthMessageImageUpload3Display) }}
+                        {% endif %}
+                        {% if form.thumbnailHeightMessageImageUpload3Display is defined %}
+                            {{ form_row(form.thumbnailHeightMessageImageUpload3Display) }}
+                        {% endif %}
+                        {% if form.thumbnailWidthMessageImageUpload3Edit is defined %}
+                            {{ form_row(form.thumbnailWidthMessageImageUpload3Edit) }}
+                        {% endif %}
+                        {% if form.thumbnailHeightMessageImageUpload3Edit is defined %}
+                            {{ form_row(form.thumbnailHeightMessageImageUpload3Edit) }}
+                        {% endif %}
                     </fieldset>
                 </div>
                 <div role="tabpanel" class="tab-pane fade" id="tabImagesMessageImageUpload4" aria-labelledby="imagesMessageImageUpload4Tab">
@@ -188,18 +286,38 @@
                     <fieldset>
                         <legend>{{ tabTitle }}</legend>
                 
-                        {{ form_row(form.enableShrinkingForMessageImageUpload4) }}
+                        {% if form.enableShrinkingForMessageImageUpload4 is defined %}
+                            {{ form_row(form.enableShrinkingForMessageImageUpload4) }}
+                        {% endif %}
                         <div id="shrinkDetailsMessageImageUpload4">
-                        {{ form_row(form.shrinkWidthMessageImageUpload4) }}
-                        {{ form_row(form.shrinkHeightMessageImageUpload4) }}
+                        {% if form.shrinkWidthMessageImageUpload4 is defined %}
+                            {{ form_row(form.shrinkWidthMessageImageUpload4) }}
+                        {% endif %}
+                        {% if form.shrinkHeightMessageImageUpload4 is defined %}
+                            {{ form_row(form.shrinkHeightMessageImageUpload4) }}
+                        {% endif %}
                         </div>
-                        {{ form_row(form.thumbnailModeMessageImageUpload4) }}
-                        {{ form_row(form.thumbnailWidthMessageImageUpload4View) }}
-                        {{ form_row(form.thumbnailHeightMessageImageUpload4View) }}
-                        {{ form_row(form.thumbnailWidthMessageImageUpload4Display) }}
-                        {{ form_row(form.thumbnailHeightMessageImageUpload4Display) }}
-                        {{ form_row(form.thumbnailWidthMessageImageUpload4Edit) }}
-                        {{ form_row(form.thumbnailHeightMessageImageUpload4Edit) }}
+                        {% if form.thumbnailModeMessageImageUpload4 is defined %}
+                            {{ form_row(form.thumbnailModeMessageImageUpload4) }}
+                        {% endif %}
+                        {% if form.thumbnailWidthMessageImageUpload4View is defined %}
+                            {{ form_row(form.thumbnailWidthMessageImageUpload4View) }}
+                        {% endif %}
+                        {% if form.thumbnailHeightMessageImageUpload4View is defined %}
+                            {{ form_row(form.thumbnailHeightMessageImageUpload4View) }}
+                        {% endif %}
+                        {% if form.thumbnailWidthMessageImageUpload4Display is defined %}
+                            {{ form_row(form.thumbnailWidthMessageImageUpload4Display) }}
+                        {% endif %}
+                        {% if form.thumbnailHeightMessageImageUpload4Display is defined %}
+                            {{ form_row(form.thumbnailHeightMessageImageUpload4Display) }}
+                        {% endif %}
+                        {% if form.thumbnailWidthMessageImageUpload4Edit is defined %}
+                            {{ form_row(form.thumbnailWidthMessageImageUpload4Edit) }}
+                        {% endif %}
+                        {% if form.thumbnailHeightMessageImageUpload4Edit is defined %}
+                            {{ form_row(form.thumbnailHeightMessageImageUpload4Edit) }}
+                        {% endif %}
                     </fieldset>
                 </div>
                 <div role="tabpanel" class="tab-pane fade" id="tabImagesImageTheFile" aria-labelledby="imagesImageTheFileTab">
@@ -207,12 +325,20 @@
                     <fieldset>
                         <legend>{{ tabTitle }}</legend>
                 
-                        {{ form_row(form.enableShrinkingForImageTheFile) }}
+                        {% if form.enableShrinkingForImageTheFile is defined %}
+                            {{ form_row(form.enableShrinkingForImageTheFile) }}
+                        {% endif %}
                         <div id="shrinkDetailsImageTheFile">
-                        {{ form_row(form.shrinkWidthImageTheFile) }}
-                        {{ form_row(form.shrinkHeightImageTheFile) }}
+                        {% if form.shrinkWidthImageTheFile is defined %}
+                            {{ form_row(form.shrinkWidthImageTheFile) }}
+                        {% endif %}
+                        {% if form.shrinkHeightImageTheFile is defined %}
+                            {{ form_row(form.shrinkHeightImageTheFile) }}
+                        {% endif %}
                         </div>
-                        {{ form_row(form.thumbnailModeImageTheFile) }}
+                        {% if form.thumbnailModeImageTheFile is defined %}
+                            {{ form_row(form.thumbnailModeImageTheFile) }}
+                        {% endif %}
                     </fieldset>
                 </div>
                 <div role="tabpanel" class="tab-pane fade" id="tab7" aria-labelledby="vars7Tab">
@@ -221,9 +347,15 @@
                         <legend>{{ tabTitle }}</legend>
                         <p class="alert alert-info">{% trans from 'config' %}Here you can define moderation-related settings.{% endtrans %}</p>
                         
-                        {{ form_row(form.moderationGroupForMessages) }}
-                        {{ form_row(form.allowModerationSpecificCreatorForMessage) }}
-                        {{ form_row(form.allowModerationSpecificCreationDateForMessage) }}
+                        {% if form.moderationGroupForMessages is defined %}
+                            {{ form_row(form.moderationGroupForMessages) }}
+                        {% endif %}
+                        {% if form.allowModerationSpecificCreatorForMessage is defined %}
+                            {{ form_row(form.allowModerationSpecificCreatorForMessage) }}
+                        {% endif %}
+                        {% if form.allowModerationSpecificCreationDateForMessage is defined %}
+                            {{ form_row(form.allowModerationSpecificCreationDateForMessage) }}
+                        {% endif %}
                     </fieldset>
                 </div>
                 <div role="tabpanel" class="tab-pane fade" id="tab8" aria-labelledby="vars8Tab">
@@ -232,7 +364,9 @@
                         <legend>{{ tabTitle }}</legend>
                         <p class="alert alert-info">{% trans from 'config' %}These options allow you to configure integration aspects.{% endtrans %}</p>
                         
-                        {{ form_row(form.enabledFinderTypes) }}
+                        {% if form.enabledFinderTypes is defined %}
+                            {{ form_row(form.enabledFinderTypes) }}
+                        {% endif %}
                     </fieldset>
                 </div>
                 <div role="tabpanel" class="tab-pane fade" id="tabWorkflows" aria-labelledby="workflowsTab">

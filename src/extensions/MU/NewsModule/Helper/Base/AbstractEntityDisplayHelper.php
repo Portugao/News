@@ -72,7 +72,22 @@ abstract class AbstractEntityDisplayHelper
     }
     
     /**
-     * Returns the formatted title for a given entity.
+     * Returns an additional description for a given entity.
+     */
+    public function getDescription(EntityAccess $entity): string
+    {
+        if ($entity instanceof MessageEntity) {
+            return $this->getMessageDescription($entity);
+        }
+        if ($entity instanceof ImageEntity) {
+            return $this->getImageDescription($entity);
+        }
+    
+        return '';
+    }
+    
+    /**
+     * Returns the formatted title for a given message.
      */
     protected function formatMessage(MessageEntity $entity): string
     {
@@ -86,7 +101,20 @@ abstract class AbstractEntityDisplayHelper
     }
     
     /**
-     * Returns the formatted title for a given entity.
+     * Returns an additional description for a given message.
+     */
+    protected function getMessageDescription(MessageEntity $entity): string
+    {
+        $descriptionFieldName = $this->getDescriptionFieldName($entity->get_objectType());
+    
+        return isset($entity[$descriptionFieldName]) && !empty($entity[$descriptionFieldName])
+            ? $entity[$descriptionFieldName]
+            : ''
+        ;
+    }
+    
+    /**
+     * Returns the formatted title for a given image.
      */
     protected function formatImage(ImageEntity $entity): string
     {
@@ -98,6 +126,19 @@ abstract class AbstractEntityDisplayHelper
             ],
             'image'
         );
+    }
+    
+    /**
+     * Returns an additional description for a given image.
+     */
+    protected function getImageDescription(ImageEntity $entity): string
+    {
+        $descriptionFieldName = $this->getDescriptionFieldName($entity->get_objectType());
+    
+        return isset($entity[$descriptionFieldName]) && !empty($entity[$descriptionFieldName])
+            ? $entity[$descriptionFieldName]
+            : ''
+        ;
     }
     
     /**

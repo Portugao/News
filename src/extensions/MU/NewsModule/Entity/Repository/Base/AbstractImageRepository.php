@@ -75,11 +75,13 @@ abstract class AbstractImageRepository extends SortableRepository
         return $this->defaultSortingField;
     }
     
-    public function setDefaultSortingField(?string $defaultSortingField = null): void
+    public function setDefaultSortingField(?string $defaultSortingField = null): self
     {
         if ($this->defaultSortingField !== $defaultSortingField) {
             $this->defaultSortingField = $defaultSortingField;
         }
+    
+        return $this;
     }
     
     public function getCollectionFilterHelper(): ?CollectionFilterHelper
@@ -87,11 +89,13 @@ abstract class AbstractImageRepository extends SortableRepository
         return $this->collectionFilterHelper;
     }
     
-    public function setCollectionFilterHelper(?CollectionFilterHelper $collectionFilterHelper = null): void
+    public function setCollectionFilterHelper(?CollectionFilterHelper $collectionFilterHelper = null): self
     {
         if ($this->collectionFilterHelper !== $collectionFilterHelper) {
             $this->collectionFilterHelper = $collectionFilterHelper;
         }
+    
+        return $this;
     }
     
     /**
@@ -372,9 +376,8 @@ abstract class AbstractImageRepository extends SortableRepository
             $qb = $this->addExclusion($qb, $exclude);
         }
     
-        if (null !== $this->collectionFilterHelper) {
-            $qb = $this->collectionFilterHelper->addSearchFilter('image', $qb, $fragment);
-        }
+        // $fragment is currently not used because getListQueryBuilder calls CollectionFilterHelper
+        // which processes the search term given in the request automatically
     
         $paginator = $this->retrieveCollectionResult($qb, true, $currentPage, $resultsPerPage);
     

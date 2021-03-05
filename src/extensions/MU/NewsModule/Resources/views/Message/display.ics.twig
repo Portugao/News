@@ -5,15 +5,15 @@ VERSION:2.0
 PRODID:{{ app.request.schemeAndHttpHost }}
 METHOD:PUBLISH
 BEGIN:VEVENT
-DTSTART:{{ message|date('Ymd\THi00\Z') }}
-DTEND:{{ message|date('Ymd\THi00\Z') }}
+DTSTART:{{ message.startDate|date('Ymd\THi00\Z') }}
+DTEND:{{ message.endDate|date('Ymd\THi00\Z') }}
 {% if message.zipcode != '' and message.city is not empty %}{% set location = message.zipcode ~ ' ' ~ message.city %}LOCATION{{ location|munewsmodule_icalText }}{% endif %}
 TRANSP:OPAQUE
 SEQUENCE:0
-UID:{{ 'ICAL' ~ message.startDate ~ random(5000) ~ message.endDate }}
+UID:{{ 'ICAL' ~ message.id ~ message.startDate|date('Ymd\THi00\Z') ~ message.endDate|date('Ymd\THi00\Z') }}
 DTSTAMP:{{ 'now'|date('Ymd\THi00\Z') }}
 ORGANIZER;CN="{{ message.createdBy.getUname() }}":MAILTO:{{ message.createdBy.getEmail() }}
-CATEGORIES:{% for propName, catMapping in message.categories %}{% if not loop.first %},{% endif %}{{ catMapping.category.display_name[lang]|upper }}{% endfor %}
+CATEGORIES:{% for propName, catMapping in message.categories %}{% if not loop.first %},{% endif %}{{ catMapping.category.display_name[app.request.locale]|default(catMapping.category.name) }}{% endfor %}
 SUMMARY{{ message|munewsmodule_formattedTitle|munewsmodule_icalText }}
 {% if message.startText is not empty %}DESCRIPTION{{ message.startText|munewsmodule_icalText }}{% endif %}
 PRIORITY:5
